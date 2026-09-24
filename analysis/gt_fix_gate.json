@@ -1,0 +1,122 @@
+{
+  "orig|trans_mlp": {
+    "val": {
+      "macro_f1": 0.202,
+      "micro_f1": 0.524
+    },
+    "te": {
+      "macro_f1": 0.11,
+      "micro_f1": 0.462
+    }
+  },
+  "orig|pooled_xgb": {
+    "val": {
+      "macro_f1": 0.178,
+      "micro_f1": 0.542
+    },
+    "te": {
+      "macro_f1": 0.136,
+      "micro_f1": 0.502
+    }
+  },
+  "orig|pooled_logreg": {
+    "val": {
+      "macro_f1": 0.202,
+      "micro_f1": 0.492
+    },
+    "te": {
+      "macro_f1": 0.123,
+      "micro_f1": 0.434
+    }
+  },
+  "orig|legacy_ns_xgb": {
+    "val": {
+      "macro_f1": 0.182,
+      "micro_f1": 0.541
+    },
+    "te": {
+      "macro_f1": 0.093,
+      "micro_f1": 0.484
+    }
+  },
+  "maskA|trans_mlp": {
+    "val": {
+      "macro_f1": 0.15,
+      "micro_f1": 0.408
+    },
+    "te": {
+      "macro_f1": 0.104,
+      "micro_f1": 0.376
+    }
+  },
+  "maskA|pooled_xgb": {
+    "val": {
+      "macro_f1": 0.218,
+      "micro_f1": 0.494
+    },
+    "te": {
+      "macro_f1": 0.141,
+      "micro_f1": 0.445
+    }
+  },
+  "maskA|pooled_logreg": {
+    "val": {
+      "macro_f1": 0.243,
+      "micro_f1": 0.449
+    },
+    "te": {
+      "macro_f1": 0.133,
+      "micro_f1": 0.39
+    }
+  },
+  "maskA|legacy_ns_xgb": {
+    "val": {
+      "macro_f1": 0.182,
+      "micro_f1": 0.541
+    },
+    "te": {
+      "macro_f1": 0.093,
+      "micro_f1": 0.484
+    }
+  },
+  "denseB|trans_mlp": {
+    "val": {
+      "macro_f1": 0.14,
+      "micro_f1": 0.388
+    },
+    "te": {
+      "macro_f1": 0.112,
+      "micro_f1": 0.345
+    }
+  },
+  "denseB|pooled_xgb": {
+    "val": {
+      "macro_f1": 0.423,
+      "micro_f1": 0.528
+    },
+    "te": {
+      "macro_f1": 0.145,
+      "micro_f1": 0.444
+    }
+  },
+  "denseB|pooled_logreg": {
+    "val": {
+      "macro_f1": 0.355,
+      "micro_f1": 0.496
+    },
+    "te": {
+      "macro_f1": 0.16,
+      "micro_f1": 0.403
+    }
+  },
+  "denseB|legacy_ns_xgb": {
+    "val": {
+      "macro_f1": 0.182,
+      "micro_f1": 0.541
+    },
+    "te": {
+      "macro_f1": 0.093,
+      "micro_f1": 0.484
+    }
+  }
+}

@@ -1,0 +1,852 @@
+{
+ "best_config": {
+  "model": "xgb",
+  "recipe": "balanced",
+  "threshold_mode": "calibrated",
+  "min_pos": 5,
+  "hparams": {
+   "xgb": {
+    "n_estimators": 400,
+    "max_depth": 6,
+    "learning_rate": 0.05
+   }
+  },
+  "feature_groups": [
+   "self"
+  ],
+  "state_concepts": null,
+  "state_concepts_mode": null,
+  "transition_config": null,
+  "macro": 0.198,
+  "micro": 0.557
+ },
+ "trajectory_length": 24,
+ "termination_reason": "max_iters",
+ "budgets": {
+  "max_iters": 24,
+  "compute_units": 30,
+  "recent_window": 6,
+  "show_progress": true
+ },
+ "policy_model_start": "gpt-5.4-mini",
+ "policy_model_final": "gpt-5.4-mini",
+ "history": [
+  {
+   "step": 0,
+   "action": "train",
+   "model": "logreg",
+   "recipe": "default",
+   "threshold_mode": "fixed",
+   "min_pos": 5,
+   "val_macro": 0.137,
+   "val_micro": 0.446,
+   "best_macro_so_far": 0.137,
+   "compute_left": 29,
+   "iters_used": 1
+  },
+  {
+   "step": 1,
+   "action": "train",
+   "model": "rf",
+   "recipe": "default",
+   "threshold_mode": "fixed",
+   "min_pos": 5,
+   "val_macro": 0.113,
+   "val_micro": 0.471,
+   "best_macro_so_far": 0.113,
+   "compute_left": 28,
+   "iters_used": 2
+  },
+  {
+   "step": 2,
+   "action": "train",
+   "model": "xgb",
+   "recipe": "default",
+   "threshold_mode": "fixed",
+   "min_pos": 5,
+   "val_macro": 0.12,
+   "val_micro": 0.462,
+   "best_macro_so_far": 0.113,
+   "compute_left": 27,
+   "iters_used": 3
+  },
+  {
+   "step": 3,
+   "action": "set_threshold_mode",
+   "model": "xgb",
+   "recipe": "default",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.113,
+   "compute_left": 27,
+   "iters_used": 4
+  },
+  {
+   "step": 4,
+   "action": "train",
+   "model": "rf",
+   "recipe": "default",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.203,
+   "val_micro": 0.538,
+   "best_macro_so_far": 0.203,
+   "compute_left": 26,
+   "iters_used": 5
+  },
+  {
+   "step": 5,
+   "action": "train_ensemble",
+   "model": "ensemble:rf+xgb",
+   "recipe": "default",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.2,
+   "val_micro": 0.555,
+   "best_macro_so_far": 0.2,
+   "compute_left": 24,
+   "iters_used": 6
+  },
+  {
+   "step": 6,
+   "action": "set_feature_groups",
+   "model": "ensemble:rf+xgb",
+   "recipe": "default",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.2,
+   "compute_left": 24,
+   "iters_used": 7
+  },
+  {
+   "step": 7,
+   "action": "set_recipe",
+   "model": "ensemble:rf+xgb",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.2,
+   "compute_left": 24,
+   "iters_used": 8
+  },
+  {
+   "step": 8,
+   "action": "train_ensemble",
+   "model": "ensemble:rf+xgb",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.2,
+   "val_micro": 0.553,
+   "best_macro_so_far": 0.2,
+   "compute_left": 22,
+   "iters_used": 9
+  },
+  {
+   "step": 9,
+   "action": "set_recipe",
+   "model": "ensemble:rf+xgb",
+   "recipe": "default",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.2,
+   "compute_left": 22,
+   "iters_used": 10
+  },
+  {
+   "step": 10,
+   "action": "set_hparams",
+   "model": "ensemble:rf+xgb",
+   "recipe": "default",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.2,
+   "compute_left": 22,
+   "iters_used": 11
+  },
+  {
+   "step": 11,
+   "action": "train",
+   "model": "xgb",
+   "recipe": "default",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.199,
+   "val_micro": 0.541,
+   "best_macro_so_far": 0.2,
+   "compute_left": 21,
+   "iters_used": 12
+  },
+  {
+   "step": 12,
+   "action": "train_ensemble",
+   "model": "ensemble:rf+xgb+logreg",
+   "recipe": "default",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.189,
+   "val_micro": 0.545,
+   "best_macro_so_far": 0.2,
+   "compute_left": 18,
+   "iters_used": 13
+  },
+  {
+   "step": 13,
+   "action": "train",
+   "model": "rf",
+   "recipe": "default",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.198,
+   "val_micro": 0.533,
+   "best_macro_so_far": 0.2,
+   "compute_left": 17,
+   "iters_used": 14
+  },
+  {
+   "step": 14,
+   "action": "train_transition",
+   "model": "transition",
+   "recipe": "default",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.102,
+   "val_micro": 0.451,
+   "best_macro_so_far": 0.2,
+   "compute_left": 15,
+   "iters_used": 15
+  },
+  {
+   "step": 15,
+   "action": "set_recipe",
+   "model": "transition",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.2,
+   "compute_left": 15,
+   "iters_used": 16
+  },
+  {
+   "step": 16,
+   "action": "train_ensemble",
+   "model": "ensemble:rf+xgb",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.197,
+   "val_micro": 0.549,
+   "best_macro_so_far": 0.2,
+   "compute_left": 13,
+   "iters_used": 17
+  },
+  {
+   "step": 17,
+   "action": "train",
+   "model": "logreg",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.205,
+   "val_micro": 0.485,
+   "best_macro_so_far": 0.2,
+   "compute_left": 12,
+   "iters_used": 18
+  },
+  {
+   "step": 18,
+   "action": "set_hparams",
+   "model": "logreg",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.2,
+   "compute_left": 12,
+   "iters_used": 19
+  },
+  {
+   "step": 19,
+   "action": "train",
+   "model": "xgb",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.198,
+   "val_micro": 0.557,
+   "best_macro_so_far": 0.198,
+   "compute_left": 11,
+   "iters_used": 20
+  },
+  {
+   "step": 20,
+   "action": "train",
+   "model": "xgb",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.198,
+   "val_micro": 0.557,
+   "best_macro_so_far": 0.198,
+   "compute_left": 10,
+   "iters_used": 21
+  },
+  {
+   "step": 21,
+   "action": "train_ensemble",
+   "model": "ensemble:rf+xgb",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.201,
+   "val_micro": 0.557,
+   "best_macro_so_far": 0.198,
+   "compute_left": 8,
+   "iters_used": 22
+  },
+  {
+   "step": 22,
+   "action": "set_feature_groups",
+   "model": "ensemble:rf+xgb",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.198,
+   "compute_left": 8,
+   "iters_used": 23
+  },
+  {
+   "step": 23,
+   "action": "train_ensemble",
+   "model": "ensemble:xgb+mlp",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.192,
+   "val_micro": 0.546,
+   "best_macro_so_far": 0.198,
+   "compute_left": 6,
+   "iters_used": 24
+  }
+ ],
+ "trace": [
+  {
+   "step": 0,
+   "action": "train",
+   "args": {
+    "method": "logreg"
+   },
+   "why": "Start with a strong cheap baseline to establish a reference and likely improve micro-F1 over the null.",
+   "thinking": "No models have been tried yet, so the highest-probability first step is the recommended family comparison under the default recipe. Logreg is a cheap strong baseline for multilabel concept prediction, and it gives a useful anchor before spending extra compute on RF/XGB or calibration. Remaining untried low-cost options also include rf, xgb, mlp, base-rate, feature-group restriction, and threshold calibration later once a strong model is identified.",
+   "obs": {
+    "ok": true,
+    "model": "logreg",
+    "recipe": "default",
+    "threshold_mode": "fixed",
+    "internal_val": {
+     "macro_f1": 0.137,
+     "micro_f1": 0.446
+    },
+    "compute_left": 29
+   }
+  },
+  {
+   "step": 1,
+   "action": "train",
+   "args": {
+    "method": "rf"
+   },
+   "why": "Compare a stronger nonlinear family against the current logreg baseline before threshold calibration.",
+   "thinking": "We have only tried the default logreg baseline, so the biggest untried gains are family comparison and threshold calibration. Since calibrated thresholds are usually the largest micro-F1 boost after a decent model, but we need a stronger model first, the best next low-cost step is to compare rf against the current logreg baseline. Feature groups and state-concepts are available, but I should avoid pruning before establishing a stronger family. Remaining untried low-cost options include xgb, mlp, base-rate, balanced/oversample, feature selection, and later calibration/ensembles.",
+   "obs": {
+    "ok": true,
+    "model": "rf",
+    "recipe": "default",
+    "threshold_mode": "fixed",
+    "internal_val": {
+     "macro_f1": 0.113,
+     "micro_f1": 0.471
+    },
+    "compute_left": 28
+   }
+  },
+  {
+   "step": 2,
+   "action": "train",
+   "args": {
+    "method": "xgb"
+   },
+   "why": "Compare the next strongest family under the current recipe to potentially surpass rf before tuning thresholds or ensembling.",
+   "thinking": "We have only tried logreg and rf, with rf currently best at micro-F1 0.471. The highest-probability next gain is either xgb family comparison or a calibrated-threshold retrain on the current strong model, but per strategy we should first compare remaining core families under the same recipe. Untried low-cost options remain xgb, mlp, base-rate, and later ensemble/calibration/hparams; xgb is most likely to beat rf on this kind of multilabel structured prediction.",
+   "obs": {
+    "ok": true,
+    "model": "xgb",
+    "recipe": "default",
+    "threshold_mode": "fixed",
+    "internal_val": {
+     "macro_f1": 0.12,
+     "micro_f1": 0.462
+    },
+    "compute_left": 27
+   }
+  },
+  {
+   "step": 3,
+   "action": "set_threshold_mode",
+   "args": {
+    "mode": "calibrated"
+   },
+   "why": "Calibrated per-concept thresholds are the most likely next micro-F1 gain over the current best rf baseline.",
+   "thinking": "We have tried logreg, rf, and xgb under the default recipe/fixed threshold; rf is still best on micro-F1 at 0.471, and xgb underperformed it. A likely gain path remains threshold calibration, which often boosts micro-F1 on imbalanced multilabel tasks more than swapping among single families. We should not repeat any already-tried config, so the next lowest-cost, highest-upside move is to turn on calibrated thresholds and retrain the current best family/config path starting from the strongest model family we have, which is rf.",
+   "obs": {
+    "ok": true,
+    "threshold_mode": "calibrated",
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 4,
+   "action": "train",
+   "args": {
+    "method": "rf"
+   },
+   "why": "Apply the newly enabled calibrated thresholding to the current best single model first, since this is often the biggest micro-F1 gain.",
+   "thinking": "Best seen so far is rf with default recipe and fixed threshold at micro-F1 0.471, but threshold_mode is now calibrated and needs retraining to measure. Untried low-cost options that could plausibly beat this are retraining xgb/rf under calibrated thresholds, an rf/xgb ensemble, and perhaps a transition model; given the current strong tree baseline and calibrated thresholds usually giving the largest gain, the most likely next improvement is retraining the best family under the current calibrated mode. Since rf already led among tried single models, I’ll measure rf again now with calibrated thresholds before spending compute on more expensive ensembles or recipes.",
+   "obs": {
+    "ok": true,
+    "model": "rf",
+    "recipe": "default",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.203,
+     "micro_f1": 0.538
+    },
+    "compute_left": 26
+   }
+  },
+  {
+   "step": 5,
+   "action": "train_ensemble",
+   "args": {
+    "methods": [
+     "rf",
+     "xgb"
+    ]
+   },
+   "why": "Soft-voting the two strongest tried tree models is the most likely cheap gain over the current best rf.",
+   "thinking": "We already tried logreg, rf, xgb, and switched to calibrated thresholds; rf is currently best at micro-F1 0.538. Untried low-cost moves that can plausibly beat it are a soft-voted ensemble (especially rf+xgb) and, if that fails, feature-group pruning or class-imbalance recipe changes. Since calibrated thresholds are already on and ensemble often adds complementary gains, it is the highest-probability next step.",
+   "obs": {
+    "ok": true,
+    "model": "ensemble:rf+xgb",
+    "recipe": "default",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.2,
+     "micro_f1": 0.555
+    },
+    "compute_left": 24
+   }
+  },
+  {
+   "step": 6,
+   "action": "set_feature_groups",
+   "args": {
+    "groups": [
+     "self"
+    ]
+   },
+   "why": "Likely to reduce noisy cross-context dilution and improve the already-strong calibrated ensemble’s micro-F1.",
+   "thinking": "Current best is calibrated RF+xGB ensemble at micro-F1 0.555. Untried low-cost options that can still plausibly improve micro-F1 are feature-group restriction to self only, recipe balancing/oversampling, and tuning the strongest family via hparams; transition model is available but costs 2 and is less certain than testing a compact feature choice first. Since cross features often add noise in these settings, a self-only retrain is a strong next probe and builds on the current best configuration without changing thresholding.",
+   "obs": {
+    "ok": true,
+    "feature_groups": [
+     "self"
+    ],
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 7,
+   "action": "set_recipe",
+   "args": {
+    "recipe": "balanced"
+   },
+   "why": "Balanced weighting may lift micro-F1 on imbalanced labels and is the cheapest untried change before more expensive tuning.",
+   "thinking": "Best so far is calibrated rf+xgb ensemble at micro-F1 0.555, and that already reflects the biggest obvious gain from threshold calibration. Remaining low-cost paths not yet tried include changing recipe to balanced, tuning the best family (rf or xgb) hyperparameters, trying other ensembles, and possibly tightening min_pos; transition_arm is available but costs 2 and we haven’t exhausted cheaper tuning. Since micro-F1 is the objective, I should first try a balanced recipe on the current best-performing ensemble family setup by retraining a strong single model or ensemble after the recipe change, because imbalance handling often improves micro on rare findings.",
+   "obs": {
+    "ok": true,
+    "recipe": "balanced",
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 8,
+   "action": "train_ensemble",
+   "args": {
+    "methods": [
+     "rf",
+     "xgb"
+    ]
+   },
+   "why": "Measure the newly set balanced recipe on the current best ensemble; class weighting may lift micro-F1 without changing the proven model family.",
+   "thinking": "Balanced recipe has been set but not yet measured, and the current best is a calibrated rf+xgb ensemble at micro-F1 0.555. Untried low-cost options that could still beat it are retraining the same ensemble under balanced, trying a stronger family/hparams under balanced, or testing transition_arm; since balanced often helps imbalanced multilabel settings and has zero uncertainty about applicability, it is the next most likely gain before spending 2 compute on transition.",
+   "obs": {
+    "ok": true,
+    "model": "ensemble:rf+xgb",
+    "recipe": "balanced",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.2,
+     "micro_f1": 0.553
+    },
+    "compute_left": 22
+   }
+  },
+  {
+   "step": 9,
+   "action": "set_recipe",
+   "args": {
+    "recipe": "default"
+   },
+   "why": "Balanced underperformed the best-so-far default recipe; reverting to default is the most likely quick gain before retraining the best ensemble.",
+   "thinking": "Best current config is ensemble rf+xgb with calibrated thresholds and balanced recipe, but it only reached 0.553 micro-F1, below the prior best 0.555. Untried low-cost options that could still improve micro-F1 are tuning the ensemble by switching recipe back to default or trying oversample, and possibly adjusting min_pos or model hyperparameters; however the safest likely gain is to test the stronger default recipe with the same calibrated ensemble, since balanced hurt here. I will avoid re-measuring already tried exact configurations and build from the best family/threshold setting.",
+   "obs": {
+    "ok": true,
+    "recipe": "default",
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 10,
+   "action": "set_hparams",
+   "args": {
+    "method": "xgb",
+    "params": {
+     "n_estimators": 300,
+     "max_depth": 5,
+     "learning_rate": 0.05
+    }
+   },
+   "why": "Tune the strongest family first; xgb hyperparameters often improve the downstream rf+xgb ensemble micro-F1.",
+   "thinking": "Best current is ensemble rf+xgb with calibrated thresholds at micro-F1 0.555. Untried low-cost moves that can still plausibly improve micro-F1 are tuning the ensemble members via hyperparameters, especially xgb/rf, since threshold calibration is already on and feature_groups are compact. Recipe balanced hurt slightly, so I should keep it only if hparam tuning on the best family needs a follow-up retrain; given ensemble methods are strong, a tuned xgb+rf ensemble is the most likely next gain.",
+   "obs": {
+    "ok": true,
+    "method": "xgb",
+    "hparams": {
+     "n_estimators": 300,
+     "max_depth": 5,
+     "learning_rate": 0.05
+    },
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 11,
+   "action": "train",
+   "args": {
+    "method": "xgb"
+   },
+   "why": "A tuned standalone xgb may outperform the current ensemble under the same calibrated/self-only setup and is the cheapest remaining informative test.",
+   "thinking": "Best is still the calibrated rf+xgb ensemble at micro 0.555; recent balanced recipe hurt slightly, so I should avoid reverting blindly. Untried low-cost options that could still improve micro-F1 are tuning threshold-adjacent/model family variants, especially a standalone xgb retrain with the current stronger hparams or a new ensemble including xgb+mlp/logreg, but ensemble cost is higher. Since calibrated thresholds are already on and feature groups are self-only, the most promising remaining cheap move is to retrain xgb with the current tuned hparams under default recipe and see if it can surpass the current ensemble enough to justify future ensembling.",
+   "obs": {
+    "ok": true,
+    "model": "xgb",
+    "recipe": "default",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.199,
+     "micro_f1": 0.541
+    },
+    "compute_left": 21
+   }
+  },
+  {
+   "step": 12,
+   "action": "train_ensemble",
+   "args": {
+    "methods": [
+     "rf",
+     "xgb",
+     "logreg"
+    ]
+   },
+   "why": "A broader calibrated ensemble is the most likely remaining low-cost way to beat the current rf+xgb micro-F1.",
+   "thinking": "Best so far is rf+xgb ensemble at micro 0.555 with calibrated thresholds, and xgb alone is below that. Untried low-cost options that could still improve micro-F1 are a stronger ensemble including a third family (logreg or mlp) or a single-family family tune, but since calibrated thresholds are already on, ensemble breadth is the most promising next step. I will avoid redoing xgb alone or the same rf+xgb config; the remaining plausible gain is a 3-way soft vote if it adds complementary errors.",
+   "obs": {
+    "ok": true,
+    "model": "ensemble:rf+xgb+logreg",
+    "recipe": "default",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.189,
+     "micro_f1": 0.545
+    },
+    "compute_left": 18
+   }
+  },
+  {
+   "step": 13,
+   "action": "train",
+   "args": {
+    "method": "rf"
+   },
+   "why": "rf under the current self-only, calibrated setup is a low-cost unexplored family that could still edge the current ensemble.",
+   "thinking": "Best so far is rf+xgb ensemble at micro-F1 0.555 with calibrated thresholds and self-only features. Untried low-cost options that could still beat it are rf/logreg/mlp single models under current recipe, an rf+xgb ensemble recheck isn't allowed if already tried, and the strongest remaining structural gain is likely transition modeling or a different state-concept subset, but those cost more. Since calibrated thresholds are already on and the current best is close to the ceiling of simple ensembles, the most promising cheap next step is to compare the remaining model families under the same current recipe/features to see if any single model or ensemble base can surpass the current best before spending 2 units on transition.",
+   "obs": {
+    "ok": true,
+    "model": "rf",
+    "recipe": "default",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.198,
+     "micro_f1": 0.533
+    },
+    "compute_left": 17
+   }
+  },
+  {
+   "step": 14,
+   "action": "train_transition",
+   "args": {
+    "config": {
+     "hidden": 128,
+     "depth": 2,
+     "dropout": 0.0,
+     "cond_mode": "concat",
+     "selfsup_ratio": 0.25
+    }
+   },
+   "why": "The world model can exploit condition-state interactions that the current rf/xgb ensemble cannot, and it’s the best remaining high-upside untried arm.",
+   "thinking": "Best so far is rf+xgb ensemble with calibrated thresholds at micro-F1 0.555. Untried low-cost options that could still improve micro are a logreg comparison, toggling recipe to balanced for the strong ensemble/family, or trying a state-space/world-model arm if it can capture condition interactions; state_concepts selection is also available but risky given already decent self-only features. Since calibrated thresholds are already on, the most likely next gain is a stronger model family mix or the transition model, and the cheapest informative step is to test the transition arm rather than weaker single-model repeats.",
+   "obs": {
+    "ok": true,
+    "model": "transition",
+    "config": {
+     "hidden": 128,
+     "depth": 2,
+     "dropout": 0.0,
+     "cond_mode": "concat",
+     "selfsup_ratio": 0.25
+    },
+    "recipe": "default",
+    "val_ce": 14204.5264,
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.102,
+     "micro_f1": 0.451
+    },
+    "compute_left": 15
+   }
+  },
+  {
+   "step": 15,
+   "action": "set_recipe",
+   "args": {
+    "recipe": "balanced"
+   },
+   "why": "Class imbalance is the most plausible remaining source of micro-F1 gain, and this change can boost the next retrain of the current best family.",
+   "thinking": "Best so far is the rf+xgb ensemble at micro-F1 0.555, and the current transition arm under default recipe is clearly worse. Untried low-cost improvements remaining are switching recipe to balanced or oversample, or retesting a stronger ensemble after a recipe change; calibrated thresholds are already on, so the most likely gain now is handling class imbalance. Balanced is more principled than oversample for tree/ensemble models and should be tried before more expensive or riskier moves.",
+   "obs": {
+    "ok": true,
+    "recipe": "balanced",
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 16,
+   "action": "train_ensemble",
+   "args": {
+    "methods": [
+     "rf",
+     "xgb"
+    ]
+   },
+   "why": "Top single models already strong; a focused rf+xgb soft-vote is the most plausible remaining low-cost micro-F1 gain.",
+   "thinking": "Best so far is ensemble rf+xgb with calibrated thresholds at micro 0.555; recent transition arm underperformed badly, so the highest-probability gains are still the classical family path. Untried low-cost options include logreg, base-rate, mlp, and a stronger ensemble; since xgb alone was 0.541 and ensemble with logreg/rf/xgb reached 0.545, a targeted 2-model ensemble of the top single models (rf+xgb) is the most likely to improve micro-F1 next without extra tuning risk. Recipe is already balanced and calibrated, so changing those now would need retraining and is less likely to beat the current best than an ensemble refinement.",
+   "obs": {
+    "ok": true,
+    "model": "ensemble:rf+xgb",
+    "recipe": "balanced",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.197,
+     "micro_f1": 0.549
+    },
+    "compute_left": 13
+   }
+  },
+  {
+   "step": 17,
+   "action": "train",
+   "args": {
+    "method": "logreg"
+   },
+   "why": "Logreg under the current calibrated/self configuration is the remaining cheap family most likely to complement the strong ensemble or reveal a better solo model.",
+   "thinking": "Best so far is calibrated default ensemble rf+xgb at micro 0.555; balanced hurt to 0.549, so revert to default-style training is the clearest path. Untried low-cost options that could still beat best are: logreg under the current calibrated/self setup, a retrain of rf or xgb after the recipe change, and a 2-model ensemble with a stronger partner mix; transition arm already performed poorly and is unlikely to recover within 7 iters. Since calibrated thresholds are already on, the most likely gain now is an additional model-family comparison on the current strong recipe, starting with the only major family not yet evaluated in this exact regime: logreg.",
+   "obs": {
+    "ok": true,
+    "model": "logreg",
+    "recipe": "balanced",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.205,
+     "micro_f1": 0.485
+    },
+    "compute_left": 12
+   }
+  },
+  {
+   "step": 18,
+   "action": "set_hparams",
+   "args": {
+    "method": "xgb",
+    "params": {
+     "n_estimators": 400,
+     "max_depth": 6,
+     "learning_rate": 0.05
+    }
+   },
+   "why": "Tune the strongest component of the current best-performing ensemble before spending more compute on broader sweeps.",
+   "thinking": "Best so far is ensemble rf+xgb with default recipe and calibrated thresholds at micro-F1 0.555. Untried low-cost options that could still beat it are tuning the strongest family via hparams, or trying a more aggressive imbalance recipe like oversample on the best ensemble inputs; transition models have underperformed, so I would not spend 2 compute there yet. Since calibrated thresholds are already on and feature_groups=self is already set, the most promising next move is hyperparameter tuning xgb (the strongest single learner) or rf within the ensemble.",
+   "obs": {
+    "ok": true,
+    "method": "xgb",
+    "hparams": {
+     "n_estimators": 400,
+     "max_depth": 6,
+     "learning_rate": 0.05
+    },
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 19,
+   "action": "train",
+   "args": {
+    "method": "xgb"
+   },
+   "why": "Measure the newly tuned xgb first; it is the most likely single-model contributor to a better ensemble and may directly beat current best.",
+   "thinking": "Best so far is calibrated rf+xgb ensemble at micro 0.555, and the current state shows balanced+calibrated logreg underperforms. Untried low-cost options that could still improve micro-F1 are a stronger xgb retrain with the tuned hparams already set, then potentially an ensemble that includes xgb with the best-calibrated partners. Since xgb hparams were just applied and not yet measured, that is the highest-probability next gain without spending extra compute on a new family.",
+   "obs": {
+    "ok": true,
+    "model": "xgb",
+    "recipe": "balanced",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.198,
+     "micro_f1": 0.557
+    },
+    "compute_left": 11
+   }
+  },
+  {
+   "step": 20,
+   "action": "train",
+   "args": {
+    "method": "xgb"
+   },
+   "why": "Measure the currently configured xgb variant, which is the most likely remaining low-cost improvement.",
+   "thinking": "Best_so_far is xgb balanced calibrated at micro-F1 0.557. Untried low-cost options that could still improve micro-F1 are tuning xgb-related hparams further, trying a different threshold mode/recipe combo only if not already done, or training a strong alternative like mlp; however calibrated thresholds are already on, and recipe is already balanced. Since xgb is the best family so far and we already set one xgb hparam point, the most promising remaining move is to train the updated xgb to measure whether the new hparams beat 0.557.",
+   "obs": {
+    "ok": true,
+    "model": "xgb",
+    "recipe": "balanced",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.198,
+     "micro_f1": 0.557
+    },
+    "compute_left": 10
+   }
+  },
+  {
+   "step": 21,
+   "action": "train_ensemble",
+   "args": {
+    "methods": [
+     "rf",
+     "xgb"
+    ]
+   },
+   "why": "A soft-vote ensemble of the two strongest tree-based models is the most likely remaining low-cost bump over calibrated xgb.",
+   "thinking": "Best so far is xgb with balanced recipe and calibrated thresholds at micro-F1 0.557. Untried low-cost options that could still beat it are primarily a soft-vote ensemble with xgb plus another strong model, or adjusting feature groups/state concepts; transition arm was already tried and underperformed. Since we have only 3 iters and 10 compute left, the highest-probability gain over the current best is an ensemble of the strongest complementary models, likely rf+xgb or xgb+logreg, with ensemble often edging single xgb on micro-F1.",
+   "obs": {
+    "ok": true,
+    "model": "ensemble:rf+xgb",
+    "recipe": "balanced",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.201,
+     "micro_f1": 0.557
+    },
+    "compute_left": 8
+   }
+  },
+  {
+   "step": 22,
+   "action": "set_feature_groups",
+   "args": {
+    "groups": [
+     "self",
+     "cross"
+    ]
+   },
+   "why": "Cross-context features are the main untried low-cost axis and could raise micro-F1 if they add discriminative signal.",
+   "thinking": "Best so far is xgb with balanced + calibrated at micro-F1 0.557, matched by the rf+xgb ensemble. Remaining tried configs suggest xgb is saturated, and we have only 2 iters left; one low-cost unexplored lever that can still improve micro-F1 is shifting feature groups from self-only to self+cross, since cross-context may add signal for some findings. I will avoid re-trying the same family/settings and use the last cheap structural change before deciding whether any gain is likely.",
+   "obs": {
+    "ok": true,
+    "feature_groups": [
+     "self",
+     "cross"
+    ],
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 23,
+   "action": "train_ensemble",
+   "args": {
+    "methods": [
+     "xgb",
+     "mlp"
+    ]
+   },
+   "why": "Try the strongest untried ensemble pair to maximize the chance of a small micro-F1 gain in the last iteration.",
+   "thinking": "Best_so_far is calibrated balanced xgb at micro-F1 0.557, tied by rf+xgb ensemble but not beaten. Remaining untried low-cost options are mainly changing recipe to default/oversample, tweaking min_pos, resplitting, or trying the transition arm, but with only 1 iteration left and compute 8, the safest likely gain is a new ensemble including the already-strong xgb if any untried combo remains; however rf+xgb was already tried, and xgb+mlp or logreg+xgb would be the next distinct ensembles. Since xgb is strongest and mlp can add complementary signal, an xgb+mlp soft-vote is the most plausible micro-F1 uplift without changing other axes.",
+   "obs": {
+    "ok": true,
+    "model": "ensemble:xgb+mlp",
+    "recipe": "balanced",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.192,
+     "micro_f1": 0.546
+    },
+    "compute_left": 6
+   }
+  }
+ ],
+ "policy_usage": {
+  "policy_model": "gpt-5.4-mini",
+  "api_calls": 24,
+  "prompt_tokens": 75173,
+  "completion_tokens": 4087,
+  "total_tokens": 79260,
+  "wall_sec": 829.8
+ }
+}

@@ -1,0 +1,311 @@
+{
+ "best_config": {
+  "model": "logreg",
+  "recipe": "balanced",
+  "threshold_mode": "calibrated",
+  "min_pos": 5,
+  "hparams": {},
+  "macro": 0.213,
+  "micro": 0.442
+ },
+ "trajectory_length": 10,
+ "termination_reason": "max_iters",
+ "policy_model_start": "gpt-5.4-mini",
+ "policy_model_final": "gpt-5.4-mini",
+ "history": [
+  {
+   "step": 0,
+   "action": "train",
+   "model": "base-rate",
+   "recipe": "default",
+   "threshold_mode": "fixed",
+   "min_pos": 5,
+   "val_macro": 0.008,
+   "val_micro": 0.062,
+   "best_macro_so_far": 0.008,
+   "compute_left": 29,
+   "iters_used": 1
+  },
+  {
+   "step": 1,
+   "action": "set_threshold_mode",
+   "model": "base-rate",
+   "recipe": "default",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.008,
+   "compute_left": 29,
+   "iters_used": 2
+  },
+  {
+   "step": 2,
+   "action": "set_recipe",
+   "model": "base-rate",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.008,
+   "compute_left": 29,
+   "iters_used": 3
+  },
+  {
+   "step": 3,
+   "action": "train",
+   "model": "logreg",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.213,
+   "val_micro": 0.442,
+   "best_macro_so_far": 0.213,
+   "compute_left": 28,
+   "iters_used": 4
+  },
+  {
+   "step": 4,
+   "action": "set_recipe",
+   "model": "logreg",
+   "recipe": "oversample",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.213,
+   "compute_left": 28,
+   "iters_used": 5
+  },
+  {
+   "step": 5,
+   "action": "train",
+   "model": "logreg",
+   "recipe": "oversample",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.2,
+   "val_micro": 0.448,
+   "best_macro_so_far": 0.213,
+   "compute_left": 27,
+   "iters_used": 6
+  },
+  {
+   "step": 6,
+   "action": "set_recipe",
+   "model": "logreg",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.213,
+   "compute_left": 27,
+   "iters_used": 7
+  },
+  {
+   "step": 7,
+   "action": "set_threshold_mode",
+   "model": "logreg",
+   "recipe": "balanced",
+   "threshold_mode": "fixed",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.213,
+   "compute_left": 27,
+   "iters_used": 8
+  },
+  {
+   "step": 8,
+   "action": "set_threshold_mode",
+   "model": "logreg",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": null,
+   "val_micro": null,
+   "best_macro_so_far": 0.213,
+   "compute_left": 27,
+   "iters_used": 9
+  },
+  {
+   "step": 9,
+   "action": "train",
+   "model": "logreg",
+   "recipe": "balanced",
+   "threshold_mode": "calibrated",
+   "min_pos": 5,
+   "val_macro": 0.213,
+   "val_micro": 0.442,
+   "best_macro_so_far": 0.213,
+   "compute_left": 26,
+   "iters_used": 10
+  }
+ ],
+ "trace": [
+  {
+   "step": 0,
+   "action": "train",
+   "args": {
+    "method": "base-rate"
+   },
+   "why": "Establish a cheap baseline on current default recipe and fixed threshold before spending compute on tuned models.",
+   "obs": {
+    "ok": true,
+    "model": "base-rate",
+    "recipe": "default",
+    "threshold_mode": "fixed",
+    "internal_val": {
+     "macro_f1": 0.008,
+     "micro_f1": 0.062
+    },
+    "compute_left": 29
+   }
+  },
+  {
+   "step": 1,
+   "action": "set_threshold_mode",
+   "args": {
+    "mode": "calibrated"
+   },
+   "why": "Fixed thresholds are likely suppressing rare concept recall; per-concept calibration often improves macro-F1 on imbalanced clinical label prediction.",
+   "obs": {
+    "ok": true,
+    "threshold_mode": "calibrated",
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 2,
+   "action": "set_recipe",
+   "args": {
+    "recipe": "balanced"
+   },
+   "why": "The current base-rate performance is extremely low; a balanced recipe is a strong cheap first change for imbalanced clinical concepts and may improve macro-F1 under calibrated thresholds.",
+   "obs": {
+    "ok": true,
+    "recipe": "balanced",
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 3,
+   "action": "train",
+   "args": {
+    "method": "logreg"
+   },
+   "why": "Logistic regression is a strong cheap baseline for sparse clinical concept prediction and should improve substantially over base-rate under the current balanced + calibrated setup; use internal-val macro-F1 to compare before trying more expensive models or ensembles.",
+   "obs": {
+    "ok": true,
+    "model": "logreg",
+    "recipe": "balanced",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.213,
+     "micro_f1": 0.442
+    },
+    "compute_left": 28
+   }
+  },
+  {
+   "step": 4,
+   "action": "set_recipe",
+   "args": {
+    "recipe": "oversample"
+   },
+   "why": "Balanced logreg is modest; oversampling may help rare concepts and improve macro-F1 under calibrated thresholds.",
+   "obs": {
+    "ok": true,
+    "recipe": "oversample",
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 5,
+   "action": "train",
+   "args": {
+    "method": "logreg"
+   },
+   "why": "Need a fresh internal-val measurement under the current oversample + calibrated-threshold setup; logreg is a cheap strong baseline and will let us compare against the current model before changing anything.",
+   "obs": {
+    "ok": true,
+    "model": "logreg",
+    "recipe": "oversample",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.2,
+     "micro_f1": 0.448
+    },
+    "compute_left": 27
+   }
+  },
+  {
+   "step": 6,
+   "action": "set_recipe",
+   "args": {
+    "recipe": "balanced"
+   },
+   "why": "The current oversample+calibrated logreg has modest macro-F1; balanced sampling is often a stronger default for imbalanced multilabel/concept prediction and is a cheap, high-yield recipe change to test before spending compute on model families or ensembles.",
+   "obs": {
+    "ok": true,
+    "recipe": "balanced",
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 7,
+   "action": "set_threshold_mode",
+   "args": {
+    "mode": "fixed"
+   },
+   "why": "Calibrated thresholds can overfit on small internal validation; fixed threshold is a cheap baseline to compare against given current macro-F1 is modest.",
+   "obs": {
+    "ok": true,
+    "threshold_mode": "fixed",
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 8,
+   "action": "set_threshold_mode",
+   "args": {
+    "mode": "calibrated"
+   },
+   "why": "Per-concept threshold calibration on internal validation often improves macro-F1, especially for imbalanced clinical label prediction.",
+   "obs": {
+    "ok": true,
+    "threshold_mode": "calibrated",
+    "note": "retrain to apply"
+   }
+  },
+  {
+   "step": 9,
+   "action": "train",
+   "args": {
+    "method": "logreg"
+   },
+   "why": "Need one cheap internal-val probe under current balanced + calibrated setup; logistic regression is a strong baseline for macro-F1 on multi-label clinical findings and may improve over the current oversample config.",
+   "obs": {
+    "ok": true,
+    "model": "logreg",
+    "recipe": "balanced",
+    "threshold_mode": "calibrated",
+    "internal_val": {
+     "macro_f1": 0.213,
+     "micro_f1": 0.442
+    },
+    "compute_left": 26
+   }
+  }
+ ],
+ "policy_usage": {
+  "policy_model": "gpt-5.4-mini",
+  "api_calls": 10,
+  "prompt_tokens": 5624,
+  "completion_tokens": 567,
+  "total_tokens": 6191,
+  "wall_sec": 101.3
+ }
+}

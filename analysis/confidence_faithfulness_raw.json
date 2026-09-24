@@ -1,0 +1,140 @@
+{
+  "gpt-6-astra": {
+    "Likely": {
+      "n": 660,
+      "tp": 778,
+      "fp": 708,
+      "fn": 428
+    },
+    "Better than even": {
+      "n": 278,
+      "tp": 343,
+      "fp": 334,
+      "fn": 174
+    },
+    "Less than even": {
+      "n": 133,
+      "tp": 73,
+      "fp": 93,
+      "fn": 118
+    },
+    "Highly likely": {
+      "n": 274,
+      "tp": 256,
+      "fp": 228,
+      "fn": 174
+    },
+    "Very good chance": {
+      "n": 64,
+      "tp": 65,
+      "fp": 81,
+      "fn": 38
+    },
+    "Almost certain": {
+      "n": 9,
+      "tp": 12,
+      "fp": 6,
+      "fn": 4
+    },
+    "Chances are slight": {
+      "n": 1,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    }
+  },
+  "gpt-5.4-mini": {
+    "Very good chance": {
+      "n": 230,
+      "tp": 331,
+      "fp": 309,
+      "fn": 141
+    },
+    "Likely": {
+      "n": 656,
+      "tp": 592,
+      "fp": 635,
+      "fn": 423
+    },
+    "Highly likely": {
+      "n": 479,
+      "tp": 613,
+      "fp": 602,
+      "fn": 304
+    },
+    "Almost certain": {
+      "n": 15,
+      "tp": 14,
+      "fp": 20,
+      "fn": 8
+    },
+    "Less than even": {
+      "n": 17,
+      "tp": 2,
+      "fp": 8,
+      "fn": 21
+    },
+    "Unlikely": {
+      "n": 18,
+      "tp": 2,
+      "fp": 5,
+      "fn": 10
+    },
+    "Chances are slight": {
+      "n": 1,
+      "tp": 0,
+      "fp": 0,
+      "fn": 2
+    },
+    "MISSING": {
+      "n": 1,
+      "tp": 0,
+      "fp": 4,
+      "fn": 0
+    },
+    "Better than even": {
+      "n": 2,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    }
+  },
+  "claude-opus-4-7": {
+    "Very good chance": {
+      "n": 148,
+      "tp": 128,
+      "fp": 139,
+      "fn": 87
+    },
+    "Highly likely": {
+      "n": 179,
+      "tp": 236,
+      "fp": 196,
+      "fn": 116
+    },
+    "Likely": {
+      "n": 466,
+      "tp": 493,
+      "fp": 526,
+      "fn": 368
+    },
+    "Better than even": {
+      "n": 528,
+      "tp": 605,
+      "fp": 727,
+      "fn": 326
+    },
+    "Chances are slight": {
+      "n": 56,
+      "tp": 27,
+      "fp": 35,
+      "fn": 23
+    },
+    "Less than even": {
+      "n": 42,
+      "tp": 26,
+      "fp": 36,
+      "fn": 28
+    }
+  }
+}

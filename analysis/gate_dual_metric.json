@@ -1,0 +1,18 @@
+{
+ "orig|pooled_xgb": [
+  0.5022,
+  0.6295
+ ],
+ "orig|trans_mlp": [
+  0.5063,
+  0.6327
+ ],
+ "denseB|pooled_xgb": [
+  0.4442,
+  0.6458
+ ],
+ "denseB|trans_mlp": [
+  0.454,
+  0.6655
+ ]
+}

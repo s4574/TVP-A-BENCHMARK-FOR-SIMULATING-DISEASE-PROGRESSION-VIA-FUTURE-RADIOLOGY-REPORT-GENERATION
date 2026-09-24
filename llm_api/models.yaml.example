@@ -1,0 +1,10 @@
+models:
+  gpt-5.4-mini:
+    api_key: YOUR_KEY
+    base_url: https://YOUR-API-ENDPOINT/v1
+    max_retry: 3
+    max_tokens: 32768
+    model_name: gpt-5.4-mini
+    temperature: 0.1
+    timeout: 120
+    type: openai
