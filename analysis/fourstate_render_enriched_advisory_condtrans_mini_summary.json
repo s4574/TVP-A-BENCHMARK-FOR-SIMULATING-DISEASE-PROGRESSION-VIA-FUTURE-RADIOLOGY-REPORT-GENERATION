@@ -1,0 +1,22 @@
+{
+  "n": 1419,
+  "tag": "enriched_advisory_condtrans_mini",
+  "model": "gpt-5.4-mini",
+  "report_score_primary": {
+    "precision": 0.4106,
+    "recall": 0.7215,
+    "micro_f1": 0.5233
+  },
+  "state_dict_direct": {
+    "precision": 0.3807,
+    "recall": 0.7337,
+    "micro_f1": 0.5013
+  },
+  "report_parse_ok": 1419,
+  "wall_sec": 4189.2,
+  "baselines": {
+    "end2end_mini_report": 0.555,
+    "state_only_render": 0.5041,
+    "llm_module_report": 0.473
+  }
+}

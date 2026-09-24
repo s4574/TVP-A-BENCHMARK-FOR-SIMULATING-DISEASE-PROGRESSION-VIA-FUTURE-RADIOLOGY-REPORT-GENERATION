@@ -1,0 +1,21 @@
+{
+  "n": 100,
+  "tag": "fourstate_autoresearch",
+  "model": "gpt-5.4-mini",
+  "report_score_primary": {
+    "precision": 0.4006,
+    "recall": 0.6963,
+    "micro_f1": 0.5086
+  },
+  "state_dict_direct": {
+    "precision": 0.3871,
+    "recall": 0.6911,
+    "micro_f1": 0.4962
+  },
+  "report_parse_ok": 100,
+  "wall_sec": 370.6,
+  "baselines": {
+    "llm_module_report": 0.473,
+    "end2end_mini_report": 0.555
+  }
+}

@@ -1,0 +1,15 @@
+{
+ "n": 1419,
+ "gen_errors": 7,
+ "model": "gpt-6-astra",
+ "mode": "stateonly",
+ "precision": 0.4646,
+ "recall": 0.5786,
+ "micro_f1": 0.5154,
+ "mini_refs": {
+  "probC_fullctx": 0.5461,
+  "stateonly_probC": 0.5236,
+  "end2end_mini": 0.555,
+  "end2end_astra": 0.5614
+ }
+}

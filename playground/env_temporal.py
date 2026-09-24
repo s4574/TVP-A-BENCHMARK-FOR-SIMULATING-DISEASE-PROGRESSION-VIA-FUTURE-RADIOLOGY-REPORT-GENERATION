@@ -46,6 +46,9 @@ class TemporalEnv:
         self.active_groups = None               # feature-group selection (None=all cols); e.g. ["self"], ["self","cross"]
         self.active_concepts = None             # explicit union-concept subset (overrides feature groups when set)
         self.concept_mode = "evidence"          # 'evidence': subset limits input only; 'state': subset IS the state space (both ends)
+        self.ns_spec = {}                       # per-namespace model/ensemble override (falls back to the global spec)
+        self.ns_hparams = {}                    # per-namespace per-method hparam overrides
+        self.last_val_by_ns = None              # per-ns internal-val micro from the most recent val scoring
         self.has_groups = any("groups" in self.data[ns] for ns in self.top_ns)
         self.cur = None; self.cur_val = None; self.cur_thr = {}; self.last_eval = None; self.shipped = None
         # conditional transition arm (world model): available iff pkl carries meta + four-state labels
@@ -97,9 +100,11 @@ class TemporalEnv:
         cols = sorted(set(cols) | set(g.get("cond", [])))
         return cols if cols else None
 
-    def _mk(self, method):
+    def _mk(self, method, ns=None):
         cw = "balanced" if self.recipe == "balanced" else None
-        hp = self.hparams.get(method, {})
+        hp = dict(self.hparams.get(method, {}))
+        if ns is not None:
+            hp.update(self.ns_hparams.get(ns, {}).get(method, {}))
         if method == "logreg":
             return LogisticRegression(max_iter=int(hp.get("max_iter", 100)), C=float(hp.get("C", 1.0)),
                                       class_weight=cw, solver="liblinear")
@@ -113,9 +118,9 @@ class TemporalEnv:
             return MLPClassifier(hidden_layer_sizes=tuple(hp.get("hidden", (64,))), max_iter=int(hp.get("max_iter", 200)))
         return None
 
-    def _proba_one(self, method, xtr, ytr, xev):
+    def _proba_one(self, method, xtr, ytr, xev, ns=None):
         """Return P(y=1) on xev for a single concept; base-rate handled by caller."""
-        clf = self._mk(method)
+        clf = self._mk(method, ns)
         try:
             clf.fit(xtr, ytr)
             if hasattr(clf, "predict_proba"):
@@ -206,15 +211,18 @@ class TemporalEnv:
 
 
     def _score(self, spec, split, return_preds=False):  # split in {'val','te'}; spec = method or "ensemble:m1+m2"
-        methods = self._methods_of(spec)
-        is_baserate = (spec == "base-rate")
-        calibrate = (split == "val" and self.thr_mode == "calibrated" and not is_baserate)
+        calibrate_any = (split == "val" and self.thr_mode == "calibrated")
         if split == "val":
             self.cur_thr = {}
+            self._val_by_ns = {}
         ns_macros = []; itp = ifp = ifn = 0; preds_by_ns = {}
         Kdrop = (set(self.active_concepts) if (self.active_concepts is not None and self.concept_mode == "state")
                  else None)   # 'state' mode: concepts outside the subset are not trained/predicted (forced negative)
         for ns in self.top_ns:
+            spec_ns = self.ns_spec.get(ns, spec)
+            methods = self._methods_of(spec_ns)
+            is_baserate = (spec_ns == "base-rate")
+            calibrate = calibrate_any and not is_baserate
             Xtr, Ytr = self.work[ns]["Xtr"], self.work[ns]["Ytr"]
             if len(Xtr) > CAP:
                 sel = np.random.default_rng(0).choice(len(Xtr), CAP, replace=False); Xtr, Ytr = Xtr[sel], Ytr[sel]
@@ -242,7 +250,7 @@ class TemporalEnv:
                         pos = np.where(ytr == 1)[0]; reps = int(1 / max(ytr.mean(), 0.05)) - 1
                         if reps > 0:
                             xtr2 = np.vstack([Xtrs] + [Xtrs[pos]] * reps); y2 = np.concatenate([ytr] + [ytr[pos]] * reps)
-                    proba = np.mean([self._proba_one(m, xtr2, y2, Xevs) for m in methods], axis=0)
+                    proba = np.mean([self._proba_one(m, xtr2, y2, Xevs, ns) for m in methods], axis=0)
                     if calibrate:
                         best_t, best_f = 0.5, -1.0
                         for t in THR:
@@ -255,9 +263,16 @@ class TemporalEnv:
                 preds[:, k] = p; f1s.append(_f1(yev, p))
             ns_macros.append(np.mean(f1s))
             preds_by_ns[ns] = preds
+            ntp = nfp = nfn = 0
             for i in range(len(Yev)):
                 gp = set(np.where(Yev[i] == 1)[0]); pp = set(np.where(preds[i] == 1)[0])
-                itp += len(gp & pp); ifp += len(pp - gp); ifn += len(gp - pp)
+                ntp += len(gp & pp); nfp += len(pp - gp); nfn += len(gp - pp)
+            itp += ntp; ifp += nfp; ifn += nfn
+            if split == "val":
+                nP = ntp / (ntp + nfp) if ntp + nfp else 0; nR = ntp / (ntp + nfn) if ntp + nfn else 0
+                self._val_by_ns[ns] = round(2 * nP * nR / (nP + nR) if nP + nR else 0.0, 3)
+        if split == "val":
+            self.last_val_by_ns = dict(self._val_by_ns)
         macro = float(np.mean(ns_macros)) if ns_macros else 0.0
         P = itp / (itp + ifp) if itp + ifp else 0; R = itp / (itp + ifn) if itp + ifn else 0
         m = {"macro_f1": round(macro, 3), "micro_f1": round(2 * P * R / (P + R) if P + R else 0, 3)}
@@ -269,10 +284,13 @@ class TemporalEnv:
                  "set_hparams(method,{...})", "resplit_val(val_frac,seed)",
                  "set_feature_groups(['self'] or ['self','cross'])",
                  "train(method)", "train_ensemble([methods])", "stop"]
+        extra += ["inspect_data (free, per-ns sizes + last per-ns val)",
+                  "set_ns_model(ns, spec|'global')", "set_ns_hparams(ns, method, {...})"]
         out = {"iters_left": self.max_iters - self.iters, "compute_left": self.compute_units,
                "eval_left": self.eval_queries - self.eval_used, "recipe": self.recipe,
                "threshold_mode": self.thr_mode, "min_pos": self.min_pos, "hparams": self.hparams,
                "feature_groups": self.active_groups, "feature_groups_available": self.has_groups,
+               "ns_model_overrides": dict(self.ns_spec), "ns_hparam_overrides": {k: list(v) for k, v in self.ns_hparams.items()},
                "state_concepts_selected": self.active_concepts,
                "state_concepts_mode": (self.concept_mode if self.active_concepts is not None else None),
                "current_model": self.cur, "current_internal_val": self.cur_val,
@@ -347,6 +365,47 @@ class TemporalEnv:
         except Exception: return {"error": "min_pos must be int"}
         if not (1 <= n <= 100): return {"error": "min_pos out of range 1..100"}
         self.min_pos = n; return {"ok": True, "min_pos": n, "note": "retrain to apply"}
+
+    def inspect_data(self):
+        """Read-only dataset/train-val diagnostics (NO sealed information): per-ns pool sizes, concept counts,
+        supervision density, and the per-ns internal-val micro-F1 of the most recent training pass."""
+        out = {}
+        for ns in self.top_ns:
+            D = self.data[ns]
+            npos = float(self.work[ns]["Ytr"].sum())
+            out[ns] = {"n_train": int(len(self.work[ns]["Xtr"])), "n_val": int(len(self.work[ns]["Xval"])),
+                       "n_concepts": int(D["Ytr"].shape[1]),
+                       "guarded_concepts": int((self.work[ns]["Ytr"].sum(0) < self.min_pos).sum()),
+                       "train_positives": int(npos),
+                       "val_micro_last_train": (self.last_val_by_ns or {}).get(ns)}
+        return {"ok": True, "note": ("micro-F1 pools all namespaces; each contributes ~proportionally to its "
+                                     "positives. Small n_val slices give NOISY per-ns feedback."),
+                "per_ns": out}
+
+    def set_ns_model(self, ns, spec):
+        """Per-namespace model override: this ns uses `spec` (a family or 'ensemble:m1+m2') instead of the
+        globally trained spec. Pass spec='global' to clear. Retrain to apply."""
+        if ns not in self.top_ns:
+            return {"error": f"unknown ns; choose from {self.top_ns}"}
+        if spec in (None, "global", ""):
+            self.ns_spec.pop(ns, None)
+            return {"ok": True, "ns": ns, "note": "override cleared; retrain to apply"}
+        base = spec.split(":", 1)[1].split("+") if isinstance(spec, str) and spec.startswith("ensemble:") else [spec]
+        if not all(m in BASE_METHODS for m in base):
+            return {"error": f"spec must be one of {BASE_METHODS} or 'ensemble:m1+m2'"}
+        self.ns_spec[ns] = spec
+        return {"ok": True, "ns": ns, "spec": spec, "note": "retrain to apply"}
+
+    def set_ns_hparams(self, ns, method, params):
+        """Per-namespace hyperparameter override for one family (merged over the global hparams)."""
+        if ns not in self.top_ns:
+            return {"error": f"unknown ns; choose from {self.top_ns}"}
+        if method not in ("logreg", "rf", "xgb", "mlp"):
+            return {"error": "hparams only for logreg|rf|xgb|mlp"}
+        if not isinstance(params, dict):
+            return {"error": "params must be a dict"}
+        self.ns_hparams.setdefault(ns, {})[method] = {**self.ns_hparams.get(ns, {}).get(method, {}), **params}
+        return {"ok": True, "ns": ns, "method": method, "hparams": self.ns_hparams[ns][method], "note": "retrain to apply"}
 
     def set_hparams(self, method, params):
         if method not in ("logreg", "rf", "xgb", "mlp"): return {"error": "hparams only for logreg|rf|xgb|mlp"}

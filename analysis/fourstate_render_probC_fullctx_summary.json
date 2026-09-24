@@ -1,0 +1,12 @@
+{
+ "n": 1419,
+ "gen_errors": 0,
+ "precision": 0.4745,
+ "recall": 0.6431,
+ "micro_f1": 0.5461,
+ "baselines": {
+  "flat_advisory_fullctx": 0.527,
+  "end2end_mini_full": 0.555,
+  "advisory_4k": 0.5233
+ }
+}

@@ -1,601 +1,601 @@
 {
- "best_config": {
-  "model": "logreg",
-  "recipe": "default",
-  "threshold_mode": "calibrated",
-  "min_pos": 5,
-  "hparams": {},
-  "macro": 0.2,
-  "micro": 0.529
- },
- "trajectory_length": 18,
- "termination_reason": "max_iters",
- "policy_model_start": "gpt-6-astra",
- "policy_model_final": "gpt-6-astra",
- "history": [
-  {
-   "step": 0,
-   "action": "train",
-   "model": "logreg",
-   "recipe": "default",
-   "threshold_mode": "fixed",
-   "min_pos": 5,
-   "val_macro": 0.091,
-   "val_micro": 0.46,
-   "best_macro_so_far": 0.091,
-   "compute_left": 29,
-   "iters_used": 1
+  "best_config": {
+    "model": "logreg",
+    "recipe": "default",
+    "threshold_mode": "calibrated",
+    "min_pos": 5,
+    "hparams": {},
+    "macro": 0.2,
+    "micro": 0.529
   },
-  {
-   "step": 1,
-   "action": "train",
-   "model": "rf",
-   "recipe": "default",
-   "threshold_mode": "fixed",
-   "min_pos": 5,
-   "val_macro": 0.077,
-   "val_micro": 0.443,
-   "best_macro_so_far": 0.091,
-   "compute_left": 28,
-   "iters_used": 2
-  },
-  {
-   "step": 2,
-   "action": "train",
-   "model": "xgb",
-   "recipe": "default",
-   "threshold_mode": "fixed",
-   "min_pos": 5,
-   "val_macro": 0.07,
-   "val_micro": 0.44,
-   "best_macro_so_far": 0.091,
-   "compute_left": 27,
-   "iters_used": 3
-  },
-  {
-   "step": 3,
-   "action": "set_threshold_mode",
-   "model": "xgb",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.091,
-   "compute_left": 27,
-   "iters_used": 4
-  },
-  {
-   "step": 4,
-   "action": "train",
-   "model": "logreg",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.2,
-   "val_micro": 0.529,
-   "best_macro_so_far": 0.2,
-   "compute_left": 26,
-   "iters_used": 5
-  },
-  {
-   "step": 5,
-   "action": "train_ensemble",
-   "model": "ensemble:logreg+xgb",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.185,
-   "val_micro": 0.527,
-   "best_macro_so_far": 0.2,
-   "compute_left": 24,
-   "iters_used": 6
-  },
-  {
-   "step": 6,
-   "action": "set_hparams",
-   "model": "ensemble:logreg+xgb",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.2,
-   "compute_left": 24,
-   "iters_used": 7
-  },
-  {
-   "step": 7,
-   "action": "set_hparams",
-   "model": "ensemble:logreg+xgb",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.2,
-   "compute_left": 24,
-   "iters_used": 8
-  },
-  {
-   "step": 8,
-   "action": "set_hparams",
-   "model": "ensemble:logreg+xgb",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.2,
-   "compute_left": 24,
-   "iters_used": 9
-  },
-  {
-   "step": 9,
-   "action": "set_recipe",
-   "model": "ensemble:logreg+xgb",
-   "recipe": "balanced",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.2,
-   "compute_left": 24,
-   "iters_used": 10
-  },
-  {
-   "step": 10,
-   "action": "train",
-   "model": "logreg",
-   "recipe": "balanced",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.222,
-   "val_micro": 0.469,
-   "best_macro_so_far": 0.2,
-   "compute_left": 23,
-   "iters_used": 11
-  },
-  {
-   "step": 11,
-   "action": "set_recipe",
-   "model": "logreg",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.2,
-   "compute_left": 23,
-   "iters_used": 12
-  },
-  {
-   "step": 12,
-   "action": "train",
-   "model": "xgb",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.124,
-   "val_micro": 0.514,
-   "best_macro_so_far": 0.2,
-   "compute_left": 22,
-   "iters_used": 13
-  },
-  {
-   "step": 13,
-   "action": "train_ensemble",
-   "model": "ensemble:logreg+xgb",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.144,
-   "val_micro": 0.526,
-   "best_macro_so_far": 0.2,
-   "compute_left": 20,
-   "iters_used": 14
-  },
-  {
-   "step": 14,
-   "action": "set_hparams",
-   "model": "ensemble:logreg+xgb",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.2,
-   "compute_left": 20,
-   "iters_used": 15
-  },
-  {
-   "step": 15,
-   "action": "set_hparams",
-   "model": "ensemble:logreg+xgb",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.2,
-   "compute_left": 20,
-   "iters_used": 16
-  },
-  {
-   "step": 16,
-   "action": "train",
-   "model": "logreg",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.194,
-   "val_micro": 0.527,
-   "best_macro_so_far": 0.2,
-   "compute_left": 19,
-   "iters_used": 17
-  },
-  {
-   "step": 17,
-   "action": "train",
-   "model": "rf",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.184,
-   "val_micro": 0.507,
-   "best_macro_so_far": 0.2,
-   "compute_left": 18,
-   "iters_used": 18
+  "trajectory_length": 18,
+  "termination_reason": "max_iters",
+  "policy_model_start": "gpt-6-astra",
+  "policy_model_final": "gpt-6-astra",
+  "history": [
+    {
+      "step": 0,
+      "action": "train",
+      "model": "logreg",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.091,
+      "val_micro": 0.46,
+      "best_macro_so_far": 0.091,
+      "compute_left": 29,
+      "iters_used": 1
+    },
+    {
+      "step": 1,
+      "action": "train",
+      "model": "rf",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.077,
+      "val_micro": 0.443,
+      "best_macro_so_far": 0.091,
+      "compute_left": 28,
+      "iters_used": 2
+    },
+    {
+      "step": 2,
+      "action": "train",
+      "model": "xgb",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.07,
+      "val_micro": 0.44,
+      "best_macro_so_far": 0.091,
+      "compute_left": 27,
+      "iters_used": 3
+    },
+    {
+      "step": 3,
+      "action": "set_threshold_mode",
+      "model": "xgb",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.091,
+      "compute_left": 27,
+      "iters_used": 4
+    },
+    {
+      "step": 4,
+      "action": "train",
+      "model": "logreg",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.2,
+      "val_micro": 0.529,
+      "best_macro_so_far": 0.2,
+      "compute_left": 26,
+      "iters_used": 5
+    },
+    {
+      "step": 5,
+      "action": "train_ensemble",
+      "model": "ensemble:logreg+xgb",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.185,
+      "val_micro": 0.527,
+      "best_macro_so_far": 0.2,
+      "compute_left": 24,
+      "iters_used": 6
+    },
+    {
+      "step": 6,
+      "action": "set_hparams",
+      "model": "ensemble:logreg+xgb",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.2,
+      "compute_left": 24,
+      "iters_used": 7
+    },
+    {
+      "step": 7,
+      "action": "set_hparams",
+      "model": "ensemble:logreg+xgb",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.2,
+      "compute_left": 24,
+      "iters_used": 8
+    },
+    {
+      "step": 8,
+      "action": "set_hparams",
+      "model": "ensemble:logreg+xgb",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.2,
+      "compute_left": 24,
+      "iters_used": 9
+    },
+    {
+      "step": 9,
+      "action": "set_recipe",
+      "model": "ensemble:logreg+xgb",
+      "recipe": "balanced",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.2,
+      "compute_left": 24,
+      "iters_used": 10
+    },
+    {
+      "step": 10,
+      "action": "train",
+      "model": "logreg",
+      "recipe": "balanced",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.222,
+      "val_micro": 0.469,
+      "best_macro_so_far": 0.2,
+      "compute_left": 23,
+      "iters_used": 11
+    },
+    {
+      "step": 11,
+      "action": "set_recipe",
+      "model": "logreg",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.2,
+      "compute_left": 23,
+      "iters_used": 12
+    },
+    {
+      "step": 12,
+      "action": "train",
+      "model": "xgb",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.124,
+      "val_micro": 0.514,
+      "best_macro_so_far": 0.2,
+      "compute_left": 22,
+      "iters_used": 13
+    },
+    {
+      "step": 13,
+      "action": "train_ensemble",
+      "model": "ensemble:logreg+xgb",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.144,
+      "val_micro": 0.526,
+      "best_macro_so_far": 0.2,
+      "compute_left": 20,
+      "iters_used": 14
+    },
+    {
+      "step": 14,
+      "action": "set_hparams",
+      "model": "ensemble:logreg+xgb",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.2,
+      "compute_left": 20,
+      "iters_used": 15
+    },
+    {
+      "step": 15,
+      "action": "set_hparams",
+      "model": "ensemble:logreg+xgb",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.2,
+      "compute_left": 20,
+      "iters_used": 16
+    },
+    {
+      "step": 16,
+      "action": "train",
+      "model": "logreg",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.194,
+      "val_micro": 0.527,
+      "best_macro_so_far": 0.2,
+      "compute_left": 19,
+      "iters_used": 17
+    },
+    {
+      "step": 17,
+      "action": "train",
+      "model": "rf",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.184,
+      "val_micro": 0.507,
+      "best_macro_so_far": 0.2,
+      "compute_left": 18,
+      "iters_used": 18
+    }
+  ],
+  "trace": [
+    {
+      "step": 0,
+      "action": "train",
+      "args": {
+        "method": "logreg"
+      },
+      "why": "Start the family comparison with a strong, efficient multilabel baseline under the default recipe and fixed thresholds.",
+      "obs": {
+        "ok": true,
+        "model": "logreg",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.091,
+          "micro_f1": 0.46
+        },
+        "compute_left": 29
+      }
+    },
+    {
+      "step": 1,
+      "action": "train",
+      "args": {
+        "method": "rf"
+      },
+      "why": "Compare the next strong model family under the current default recipe and fixed threshold against the logreg baseline (micro-F1 0.46).",
+      "obs": {
+        "ok": true,
+        "model": "rf",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.077,
+          "micro_f1": 0.443
+        },
+        "compute_left": 28
+      }
+    },
+    {
+      "step": 2,
+      "action": "train",
+      "args": {
+        "method": "xgb"
+      },
+      "why": "XGBoost is the remaining recommended family comparison under the current default recipe and fixed threshold; it may exceed the current logreg best of micro-F1 0.460.",
+      "obs": {
+        "ok": true,
+        "model": "xgb",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.07,
+          "micro_f1": 0.44
+        },
+        "compute_left": 27
+      }
+    },
+    {
+      "step": 3,
+      "action": "set_threshold_mode",
+      "args": {
+        "mode": "calibrated"
+      },
+      "why": "Calibrated per-concept thresholds are the highest-value next change for the current best default logreg model, especially with imbalanced findings. Retraining logreg under this mode should follow.",
+      "obs": {
+        "ok": true,
+        "threshold_mode": "calibrated",
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 4,
+      "action": "train",
+      "args": {
+        "method": "logreg"
+      },
+      "why": "Retrain the strongest observed family with calibrated per-concept thresholds, which is the highest-probability low-cost improvement for imbalanced multilabel F1.",
+      "obs": {
+        "ok": true,
+        "model": "logreg",
+        "recipe": "default",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.2,
+          "micro_f1": 0.529
+        },
+        "compute_left": 26
+      }
+    },
+    {
+      "step": 5,
+      "action": "train_ensemble",
+      "args": {
+        "methods": [
+          "logreg",
+          "xgb"
+        ]
+      },
+      "why": "The calibrated logreg configuration is currently best at micro-F1 0.529. A calibrated soft-voting ensemble with the strongest alternative family, xgb, is untried and has a reasonable chance to improve micro-F1 at cost 2.",
+      "obs": {
+        "ok": true,
+        "model": "ensemble:logreg+xgb",
+        "recipe": "default",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.185,
+          "micro_f1": 0.527
+        },
+        "compute_left": 24
+      }
+    },
+    {
+      "step": 6,
+      "action": "set_hparams",
+      "args": {
+        "method": "logreg",
+        "params": {
+          "C": 0.5,
+          "max_iter": 300
+        }
+      },
+      "why": "Calibrated logreg is currently best at micro-F1 0.529. Tune its regularization while preserving the strongest recipe and threshold mode; retraining next will measure whether milder regularization improves validation micro-F1.",
+      "obs": {
+        "ok": true,
+        "method": "logreg",
+        "hparams": {
+          "C": 0.5,
+          "max_iter": 300
+        },
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 7,
+      "action": "set_hparams",
+      "args": {
+        "method": "logreg",
+        "params": {
+          "C": 1.0,
+          "max_iter": 300
+        }
+      },
+      "why": "Logistic regression is the best measured family at calibrated micro-F1 0.529. Testing a higher regularization scale is the most direct remaining low-cost tuning step; retraining is required next.",
+      "obs": {
+        "ok": true,
+        "method": "logreg",
+        "hparams": {
+          "C": 1.0,
+          "max_iter": 300
+        },
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 8,
+      "action": "set_hparams",
+      "args": {
+        "method": "logreg",
+        "params": {
+          "C": 2.0,
+          "max_iter": 300
+        }
+      },
+      "why": "Logistic regression with calibrated thresholds is the best measured configuration at micro-F1 0.529. C=2.0 is an untried nearby regularization setting; apply it before retraining to test whether slightly weaker regularization improves validation micro-F1.",
+      "obs": {
+        "ok": true,
+        "method": "logreg",
+        "hparams": {
+          "C": 2.0,
+          "max_iter": 300
+        },
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 9,
+      "action": "set_recipe",
+      "args": {
+        "recipe": "balanced"
+      },
+      "why": "The calibrated default logreg is currently best at micro-F1 0.529. Testing balanced training is the highest-value remaining recipe change for rare findings; retraining the best logreg next will measure whether it improves micro-F1.",
+      "obs": {
+        "ok": true,
+        "recipe": "balanced",
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 10,
+      "action": "train",
+      "args": {
+        "method": "logreg"
+      },
+      "why": "Measure the current best logreg hyperparameters with the newly selected balanced recipe and calibrated thresholds; this exact configuration has not been evaluated yet.",
+      "obs": {
+        "ok": true,
+        "model": "logreg",
+        "recipe": "balanced",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.222,
+          "micro_f1": 0.469
+        },
+        "compute_left": 23
+      }
+    },
+    {
+      "step": 11,
+      "action": "set_recipe",
+      "args": {
+        "recipe": "default"
+      },
+      "why": "Balanced training reduced micro-F1 to 0.469, while the best calibrated default logreg reached 0.529. Restore the best recipe so the next retraining can test the current C=2.0 configuration under default sampling.",
+      "obs": {
+        "ok": true,
+        "recipe": "default",
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 12,
+      "action": "train",
+      "args": {
+        "method": "xgb"
+      },
+      "why": "Evaluate the strongest remaining model family under the current default recipe and calibrated thresholds; this is an untried comparison against the best logreg micro-F1 of 0.529.",
+      "obs": {
+        "ok": true,
+        "model": "xgb",
+        "recipe": "default",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.124,
+          "micro_f1": 0.514
+        },
+        "compute_left": 22
+      }
+    },
+    {
+      "step": 13,
+      "action": "train_ensemble",
+      "args": {
+        "methods": [
+          "logreg",
+          "xgb"
+        ]
+      },
+      "why": "Combine the best family, calibrated logreg (micro-F1 0.529), with calibrated XGB (0.514) to test whether averaging improves micro-F1. Keep the default recipe because balanced logreg reduced micro-F1 to 0.469.",
+      "obs": {
+        "ok": true,
+        "model": "ensemble:logreg+xgb",
+        "recipe": "default",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.144,
+          "micro_f1": 0.526
+        },
+        "compute_left": 20
+      }
+    },
+    {
+      "step": 14,
+      "action": "set_hparams",
+      "args": {
+        "method": "logreg",
+        "params": {
+          "C": 1.0,
+          "max_iter": 300
+        }
+      },
+      "why": "The calibrated default logreg is currently best at micro-F1 0.529. Tune its regularization next; C=1.0 is an untried nearby value and preserves the strongest recipe and threshold settings.",
+      "obs": {
+        "ok": true,
+        "method": "logreg",
+        "hparams": {
+          "C": 1.0,
+          "max_iter": 300
+        },
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 15,
+      "action": "set_hparams",
+      "args": {
+        "method": "logreg",
+        "params": {
+          "C": 2.0,
+          "max_iter": 300
+        }
+      },
+      "why": "Logistic regression with default recipe and calibrated thresholds is the current best at micro-F1 0.529. Tune its regularization strength next, then retrain to test whether a modestly weaker penalty improves micro-F1.",
+      "obs": {
+        "ok": true,
+        "method": "logreg",
+        "hparams": {
+          "C": 2.0,
+          "max_iter": 300
+        },
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 16,
+      "action": "train",
+      "args": {
+        "method": "logreg"
+      },
+      "why": "Retrain the current best logreg configuration with the pending C=2.0 hyperparameters under the already strong default recipe and calibrated thresholds; this directly measures the likely best candidate without re-testing a completed configuration.",
+      "obs": {
+        "ok": true,
+        "model": "logreg",
+        "recipe": "default",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.194,
+          "micro_f1": 0.527
+        },
+        "compute_left": 19
+      }
+    },
+    {
+      "step": 17,
+      "action": "train",
+      "args": {
+        "method": "rf"
+      },
+      "why": "One iteration remains, and random forest has not yet been evaluated. Testing it provides the clearest remaining chance to improve on the calibrated logreg best micro-F1 of 0.529.",
+      "obs": {
+        "ok": true,
+        "model": "rf",
+        "recipe": "default",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.184,
+          "micro_f1": 0.507
+        },
+        "compute_left": 18
+      }
+    }
+  ],
+  "policy_usage": {
+    "policy_model": "gpt-6-astra",
+    "api_calls": 18,
+    "prompt_tokens": 99827,
+    "completion_tokens": 2810,
+    "total_tokens": 102637,
+    "wall_sec": 461.8
   }
- ],
- "trace": [
-  {
-   "step": 0,
-   "action": "train",
-   "args": {
-    "method": "logreg"
-   },
-   "why": "Start the family comparison with a strong, efficient multilabel baseline under the default recipe and fixed thresholds.",
-   "obs": {
-    "ok": true,
-    "model": "logreg",
-    "recipe": "default",
-    "threshold_mode": "fixed",
-    "internal_val": {
-     "macro_f1": 0.091,
-     "micro_f1": 0.46
-    },
-    "compute_left": 29
-   }
-  },
-  {
-   "step": 1,
-   "action": "train",
-   "args": {
-    "method": "rf"
-   },
-   "why": "Compare the next strong model family under the current default recipe and fixed threshold against the logreg baseline (micro-F1 0.46).",
-   "obs": {
-    "ok": true,
-    "model": "rf",
-    "recipe": "default",
-    "threshold_mode": "fixed",
-    "internal_val": {
-     "macro_f1": 0.077,
-     "micro_f1": 0.443
-    },
-    "compute_left": 28
-   }
-  },
-  {
-   "step": 2,
-   "action": "train",
-   "args": {
-    "method": "xgb"
-   },
-   "why": "XGBoost is the remaining recommended family comparison under the current default recipe and fixed threshold; it may exceed the current logreg best of micro-F1 0.460.",
-   "obs": {
-    "ok": true,
-    "model": "xgb",
-    "recipe": "default",
-    "threshold_mode": "fixed",
-    "internal_val": {
-     "macro_f1": 0.07,
-     "micro_f1": 0.44
-    },
-    "compute_left": 27
-   }
-  },
-  {
-   "step": 3,
-   "action": "set_threshold_mode",
-   "args": {
-    "mode": "calibrated"
-   },
-   "why": "Calibrated per-concept thresholds are the highest-value next change for the current best default logreg model, especially with imbalanced findings. Retraining logreg under this mode should follow.",
-   "obs": {
-    "ok": true,
-    "threshold_mode": "calibrated",
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 4,
-   "action": "train",
-   "args": {
-    "method": "logreg"
-   },
-   "why": "Retrain the strongest observed family with calibrated per-concept thresholds, which is the highest-probability low-cost improvement for imbalanced multilabel F1.",
-   "obs": {
-    "ok": true,
-    "model": "logreg",
-    "recipe": "default",
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.2,
-     "micro_f1": 0.529
-    },
-    "compute_left": 26
-   }
-  },
-  {
-   "step": 5,
-   "action": "train_ensemble",
-   "args": {
-    "methods": [
-     "logreg",
-     "xgb"
-    ]
-   },
-   "why": "The calibrated logreg configuration is currently best at micro-F1 0.529. A calibrated soft-voting ensemble with the strongest alternative family, xgb, is untried and has a reasonable chance to improve micro-F1 at cost 2.",
-   "obs": {
-    "ok": true,
-    "model": "ensemble:logreg+xgb",
-    "recipe": "default",
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.185,
-     "micro_f1": 0.527
-    },
-    "compute_left": 24
-   }
-  },
-  {
-   "step": 6,
-   "action": "set_hparams",
-   "args": {
-    "method": "logreg",
-    "params": {
-     "C": 0.5,
-     "max_iter": 300
-    }
-   },
-   "why": "Calibrated logreg is currently best at micro-F1 0.529. Tune its regularization while preserving the strongest recipe and threshold mode; retraining next will measure whether milder regularization improves validation micro-F1.",
-   "obs": {
-    "ok": true,
-    "method": "logreg",
-    "hparams": {
-     "C": 0.5,
-     "max_iter": 300
-    },
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 7,
-   "action": "set_hparams",
-   "args": {
-    "method": "logreg",
-    "params": {
-     "C": 1.0,
-     "max_iter": 300
-    }
-   },
-   "why": "Logistic regression is the best measured family at calibrated micro-F1 0.529. Testing a higher regularization scale is the most direct remaining low-cost tuning step; retraining is required next.",
-   "obs": {
-    "ok": true,
-    "method": "logreg",
-    "hparams": {
-     "C": 1.0,
-     "max_iter": 300
-    },
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 8,
-   "action": "set_hparams",
-   "args": {
-    "method": "logreg",
-    "params": {
-     "C": 2.0,
-     "max_iter": 300
-    }
-   },
-   "why": "Logistic regression with calibrated thresholds is the best measured configuration at micro-F1 0.529. C=2.0 is an untried nearby regularization setting; apply it before retraining to test whether slightly weaker regularization improves validation micro-F1.",
-   "obs": {
-    "ok": true,
-    "method": "logreg",
-    "hparams": {
-     "C": 2.0,
-     "max_iter": 300
-    },
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 9,
-   "action": "set_recipe",
-   "args": {
-    "recipe": "balanced"
-   },
-   "why": "The calibrated default logreg is currently best at micro-F1 0.529. Testing balanced training is the highest-value remaining recipe change for rare findings; retraining the best logreg next will measure whether it improves micro-F1.",
-   "obs": {
-    "ok": true,
-    "recipe": "balanced",
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 10,
-   "action": "train",
-   "args": {
-    "method": "logreg"
-   },
-   "why": "Measure the current best logreg hyperparameters with the newly selected balanced recipe and calibrated thresholds; this exact configuration has not been evaluated yet.",
-   "obs": {
-    "ok": true,
-    "model": "logreg",
-    "recipe": "balanced",
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.222,
-     "micro_f1": 0.469
-    },
-    "compute_left": 23
-   }
-  },
-  {
-   "step": 11,
-   "action": "set_recipe",
-   "args": {
-    "recipe": "default"
-   },
-   "why": "Balanced training reduced micro-F1 to 0.469, while the best calibrated default logreg reached 0.529. Restore the best recipe so the next retraining can test the current C=2.0 configuration under default sampling.",
-   "obs": {
-    "ok": true,
-    "recipe": "default",
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 12,
-   "action": "train",
-   "args": {
-    "method": "xgb"
-   },
-   "why": "Evaluate the strongest remaining model family under the current default recipe and calibrated thresholds; this is an untried comparison against the best logreg micro-F1 of 0.529.",
-   "obs": {
-    "ok": true,
-    "model": "xgb",
-    "recipe": "default",
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.124,
-     "micro_f1": 0.514
-    },
-    "compute_left": 22
-   }
-  },
-  {
-   "step": 13,
-   "action": "train_ensemble",
-   "args": {
-    "methods": [
-     "logreg",
-     "xgb"
-    ]
-   },
-   "why": "Combine the best family, calibrated logreg (micro-F1 0.529), with calibrated XGB (0.514) to test whether averaging improves micro-F1. Keep the default recipe because balanced logreg reduced micro-F1 to 0.469.",
-   "obs": {
-    "ok": true,
-    "model": "ensemble:logreg+xgb",
-    "recipe": "default",
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.144,
-     "micro_f1": 0.526
-    },
-    "compute_left": 20
-   }
-  },
-  {
-   "step": 14,
-   "action": "set_hparams",
-   "args": {
-    "method": "logreg",
-    "params": {
-     "C": 1.0,
-     "max_iter": 300
-    }
-   },
-   "why": "The calibrated default logreg is currently best at micro-F1 0.529. Tune its regularization next; C=1.0 is an untried nearby value and preserves the strongest recipe and threshold settings.",
-   "obs": {
-    "ok": true,
-    "method": "logreg",
-    "hparams": {
-     "C": 1.0,
-     "max_iter": 300
-    },
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 15,
-   "action": "set_hparams",
-   "args": {
-    "method": "logreg",
-    "params": {
-     "C": 2.0,
-     "max_iter": 300
-    }
-   },
-   "why": "Logistic regression with default recipe and calibrated thresholds is the current best at micro-F1 0.529. Tune its regularization strength next, then retrain to test whether a modestly weaker penalty improves micro-F1.",
-   "obs": {
-    "ok": true,
-    "method": "logreg",
-    "hparams": {
-     "C": 2.0,
-     "max_iter": 300
-    },
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 16,
-   "action": "train",
-   "args": {
-    "method": "logreg"
-   },
-   "why": "Retrain the current best logreg configuration with the pending C=2.0 hyperparameters under the already strong default recipe and calibrated thresholds; this directly measures the likely best candidate without re-testing a completed configuration.",
-   "obs": {
-    "ok": true,
-    "model": "logreg",
-    "recipe": "default",
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.194,
-     "micro_f1": 0.527
-    },
-    "compute_left": 19
-   }
-  },
-  {
-   "step": 17,
-   "action": "train",
-   "args": {
-    "method": "rf"
-   },
-   "why": "One iteration remains, and random forest has not yet been evaluated. Testing it provides the clearest remaining chance to improve on the calibrated logreg best micro-F1 of 0.529.",
-   "obs": {
-    "ok": true,
-    "model": "rf",
-    "recipe": "default",
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.184,
-     "micro_f1": 0.507
-    },
-    "compute_left": 18
-   }
-  }
- ],
- "policy_usage": {
-  "policy_model": "gpt-6-astra",
-  "api_calls": 18,
-  "prompt_tokens": 99827,
-  "completion_tokens": 2810,
-  "total_tokens": 102637,
-  "wall_sec": 461.8
- }
 }

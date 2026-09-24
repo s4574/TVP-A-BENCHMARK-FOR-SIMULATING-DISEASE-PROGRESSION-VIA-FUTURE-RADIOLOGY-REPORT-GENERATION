@@ -1,415 +1,415 @@
 {
- "best_config": {
-  "model": "xgb",
-  "recipe": "balanced",
-  "threshold_mode": "calibrated",
-  "min_pos": 5,
-  "hparams": {
-   "rf": {
-    "n_estimators": 300,
-    "max_features": "sqrt",
-    "min_samples_leaf": 1
-   }
-  },
-  "macro": 0.162,
-  "micro": 0.533
- },
- "trajectory_length": 12,
- "termination_reason": "max_iters",
- "policy_model_start": "gpt-6-astra",
- "policy_model_final": "gpt-6-astra",
- "history": [
-  {
-   "step": 0,
-   "action": "train",
-   "model": "logreg",
-   "recipe": "default",
-   "threshold_mode": "fixed",
-   "min_pos": 5,
-   "val_macro": 0.088,
-   "val_micro": 0.438,
-   "best_macro_so_far": 0.088,
-   "compute_left": 29,
-   "iters_used": 1
-  },
-  {
-   "step": 1,
-   "action": "train",
-   "model": "rf",
-   "recipe": "default",
-   "threshold_mode": "fixed",
-   "min_pos": 5,
-   "val_macro": 0.097,
-   "val_micro": 0.474,
-   "best_macro_so_far": 0.097,
-   "compute_left": 28,
-   "iters_used": 2
-  },
-  {
-   "step": 2,
-   "action": "train",
-   "model": "xgb",
-   "recipe": "default",
-   "threshold_mode": "fixed",
-   "min_pos": 5,
-   "val_macro": 0.084,
-   "val_micro": 0.45,
-   "best_macro_so_far": 0.097,
-   "compute_left": 27,
-   "iters_used": 3
-  },
-  {
-   "step": 3,
-   "action": "train_ensemble",
-   "model": "ensemble:rf+logreg",
-   "recipe": "default",
-   "threshold_mode": "fixed",
-   "min_pos": 5,
-   "val_macro": 0.083,
-   "val_micro": 0.472,
-   "best_macro_so_far": 0.097,
-   "compute_left": 25,
-   "iters_used": 4
-  },
-  {
-   "step": 4,
-   "action": "set_threshold_mode",
-   "model": "ensemble:rf+logreg",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.097,
-   "compute_left": 25,
-   "iters_used": 5
-  },
-  {
-   "step": 5,
-   "action": "train",
-   "model": "rf",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.2,
-   "val_micro": 0.527,
-   "best_macro_so_far": 0.2,
-   "compute_left": 24,
-   "iters_used": 6
-  },
-  {
-   "step": 6,
-   "action": "set_recipe",
-   "model": "rf",
-   "recipe": "balanced",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.2,
-   "compute_left": 24,
-   "iters_used": 7
-  },
-  {
-   "step": 7,
-   "action": "train",
-   "model": "rf",
-   "recipe": "balanced",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.189,
-   "val_micro": 0.503,
-   "best_macro_so_far": 0.2,
-   "compute_left": 23,
-   "iters_used": 8
-  },
-  {
-   "step": 8,
-   "action": "set_hparams",
-   "model": "rf",
-   "recipe": "balanced",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.2,
-   "compute_left": 23,
-   "iters_used": 9
-  },
-  {
-   "step": 9,
-   "action": "train",
-   "model": "xgb",
-   "recipe": "balanced",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.162,
-   "val_micro": 0.533,
-   "best_macro_so_far": 0.162,
-   "compute_left": 22,
-   "iters_used": 10
-  },
-  {
-   "step": 10,
-   "action": "train",
-   "model": "logreg",
-   "recipe": "balanced",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.191,
-   "val_micro": 0.456,
-   "best_macro_so_far": 0.162,
-   "compute_left": 21,
-   "iters_used": 11
-  },
-  {
-   "step": 11,
-   "action": "train_ensemble",
-   "model": "ensemble:xgb+rf",
-   "recipe": "balanced",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.171,
-   "val_micro": 0.518,
-   "best_macro_so_far": 0.162,
-   "compute_left": 19,
-   "iters_used": 12
-  }
- ],
- "trace": [
-  {
-   "step": 0,
-   "action": "train",
-   "args": {
-    "method": "logreg"
-   },
-   "why": "Start the required model-family comparison on the default recipe.",
-   "obs": {
-    "ok": true,
-    "model": "logreg",
-    "recipe": "default",
-    "threshold_mode": "fixed",
-    "internal_val": {
-     "macro_f1": 0.088,
-     "micro_f1": 0.438
-    },
-    "compute_left": 29
-   }
-  },
-  {
-   "step": 1,
-   "action": "train",
-   "args": {
-    "method": "rf"
-   },
-   "why": "Compare the random-forest family against the current default-recipe logreg baseline before tuning.",
-   "obs": {
-    "ok": true,
-    "model": "rf",
-    "recipe": "default",
-    "threshold_mode": "fixed",
-    "internal_val": {
-     "macro_f1": 0.097,
-     "micro_f1": 0.474
-    },
-    "compute_left": 28
-   }
-  },
-  {
-   "step": 2,
-   "action": "train",
-   "args": {
-    "method": "xgb"
-   },
-   "why": "Compare the remaining required model family under the current default recipe and fixed threshold; RF currently leads at micro-F1 0.474.",
-   "obs": {
-    "ok": true,
+  "best_config": {
     "model": "xgb",
-    "recipe": "default",
-    "threshold_mode": "fixed",
-    "internal_val": {
-     "macro_f1": 0.084,
-     "micro_f1": 0.45
-    },
-    "compute_left": 27
-   }
-  },
-  {
-   "step": 3,
-   "action": "train_ensemble",
-   "args": {
-    "methods": [
-     "rf",
-     "logreg"
-    ]
-   },
-   "why": "Compare a soft-vote ensemble of the two strongest family results so far; RF leads on micro-F1 and logreg is the next-best distinct family.",
-   "obs": {
-    "ok": true,
-    "model": "ensemble:rf+logreg",
-    "recipe": "default",
-    "threshold_mode": "fixed",
-    "internal_val": {
-     "macro_f1": 0.083,
-     "micro_f1": 0.472
-    },
-    "compute_left": 25
-   }
-  },
-  {
-   "step": 4,
-   "action": "set_threshold_mode",
-   "args": {
-    "mode": "calibrated"
-   },
-   "why": "Tune the current best family’s decision thresholds; RF leads on micro-F1 under the default fixed threshold.",
-   "obs": {
-    "ok": true,
-    "threshold_mode": "calibrated",
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 5,
-   "action": "train",
-   "args": {
-    "method": "rf"
-   },
-   "why": "Retrain the best-performing random forest with the newly selected calibrated threshold mode; this is an untried configuration and may improve on the current best micro-F1 of 0.474.",
-   "obs": {
-    "ok": true,
-    "model": "rf",
-    "recipe": "default",
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.2,
-     "micro_f1": 0.527
-    },
-    "compute_left": 24
-   }
-  },
-  {
-   "step": 6,
-   "action": "set_recipe",
-   "args": {
-    "recipe": "balanced"
-   },
-   "why": "The calibrated RF is the current best at micro-F1 0.527. Test the balanced recipe on that family next to see whether it improves micro-F1.",
-   "obs": {
-    "ok": true,
-    "recipe": "balanced",
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 7,
-   "action": "train",
-   "args": {
-    "method": "rf"
-   },
-   "why": "Measure the untried balanced recipe with the best-performing RF family and calibrated thresholds against the current best.",
-   "obs": {
-    "ok": true,
-    "model": "rf",
     "recipe": "balanced",
     "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.189,
-     "micro_f1": 0.503
-    },
-    "compute_left": 23
-   }
-  },
-  {
-   "step": 8,
-   "action": "set_hparams",
-   "args": {
-    "method": "rf",
-    "params": {
-     "n_estimators": 300,
-     "max_features": "sqrt",
-     "min_samples_leaf": 1
-    }
-   },
-   "why": "Tune the best-performing RF family; the default-recipe calibrated RF leads at micro-F1 0.527, while balanced sampling scored lower.",
-   "obs": {
-    "ok": true,
-    "method": "rf",
+    "min_pos": 5,
     "hparams": {
-     "n_estimators": 300,
-     "max_features": "sqrt",
-     "min_samples_leaf": 1
+      "rf": {
+        "n_estimators": 300,
+        "max_features": "sqrt",
+        "min_samples_leaf": 1
+      }
     },
-    "note": "retrain to apply"
-   }
+    "macro": 0.162,
+    "micro": 0.533
   },
-  {
-   "step": 9,
-   "action": "train",
-   "args": {
-    "method": "xgb"
-   },
-   "why": "Compare an untested model family using the current balanced recipe and calibrated thresholds; the ensemble underperformed the best random-forest configuration.",
-   "obs": {
-    "ok": true,
-    "model": "xgb",
-    "recipe": "balanced",
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.162,
-     "micro_f1": 0.533
+  "trajectory_length": 12,
+  "termination_reason": "max_iters",
+  "policy_model_start": "gpt-6-astra",
+  "policy_model_final": "gpt-6-astra",
+  "history": [
+    {
+      "step": 0,
+      "action": "train",
+      "model": "logreg",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.088,
+      "val_micro": 0.438,
+      "best_macro_so_far": 0.088,
+      "compute_left": 29,
+      "iters_used": 1
     },
-    "compute_left": 22
-   }
-  },
-  {
-   "step": 10,
-   "action": "train",
-   "args": {
-    "method": "logreg"
-   },
-   "why": "Compare the untested logreg family under the current balanced, calibrated setup before using the remaining iteration on an ensemble.",
-   "obs": {
-    "ok": true,
-    "model": "logreg",
-    "recipe": "balanced",
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.191,
-     "micro_f1": 0.456
+    {
+      "step": 1,
+      "action": "train",
+      "model": "rf",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.097,
+      "val_micro": 0.474,
+      "best_macro_so_far": 0.097,
+      "compute_left": 28,
+      "iters_used": 2
     },
-    "compute_left": 21
-   }
-  },
-  {
-   "step": 11,
-   "action": "train_ensemble",
-   "args": {
-    "methods": [
-     "xgb",
-     "rf"
-    ]
-   },
-   "why": "Evaluate a soft-vote ensemble of the two strongest tried families against the best micro-F1 of 0.533.",
-   "obs": {
-    "ok": true,
-    "model": "ensemble:xgb+rf",
-    "recipe": "balanced",
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.171,
-     "micro_f1": 0.518
+    {
+      "step": 2,
+      "action": "train",
+      "model": "xgb",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.084,
+      "val_micro": 0.45,
+      "best_macro_so_far": 0.097,
+      "compute_left": 27,
+      "iters_used": 3
     },
-    "compute_left": 19
-   }
+    {
+      "step": 3,
+      "action": "train_ensemble",
+      "model": "ensemble:rf+logreg",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.083,
+      "val_micro": 0.472,
+      "best_macro_so_far": 0.097,
+      "compute_left": 25,
+      "iters_used": 4
+    },
+    {
+      "step": 4,
+      "action": "set_threshold_mode",
+      "model": "ensemble:rf+logreg",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.097,
+      "compute_left": 25,
+      "iters_used": 5
+    },
+    {
+      "step": 5,
+      "action": "train",
+      "model": "rf",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.2,
+      "val_micro": 0.527,
+      "best_macro_so_far": 0.2,
+      "compute_left": 24,
+      "iters_used": 6
+    },
+    {
+      "step": 6,
+      "action": "set_recipe",
+      "model": "rf",
+      "recipe": "balanced",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.2,
+      "compute_left": 24,
+      "iters_used": 7
+    },
+    {
+      "step": 7,
+      "action": "train",
+      "model": "rf",
+      "recipe": "balanced",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.189,
+      "val_micro": 0.503,
+      "best_macro_so_far": 0.2,
+      "compute_left": 23,
+      "iters_used": 8
+    },
+    {
+      "step": 8,
+      "action": "set_hparams",
+      "model": "rf",
+      "recipe": "balanced",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.2,
+      "compute_left": 23,
+      "iters_used": 9
+    },
+    {
+      "step": 9,
+      "action": "train",
+      "model": "xgb",
+      "recipe": "balanced",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.162,
+      "val_micro": 0.533,
+      "best_macro_so_far": 0.162,
+      "compute_left": 22,
+      "iters_used": 10
+    },
+    {
+      "step": 10,
+      "action": "train",
+      "model": "logreg",
+      "recipe": "balanced",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.191,
+      "val_micro": 0.456,
+      "best_macro_so_far": 0.162,
+      "compute_left": 21,
+      "iters_used": 11
+    },
+    {
+      "step": 11,
+      "action": "train_ensemble",
+      "model": "ensemble:xgb+rf",
+      "recipe": "balanced",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.171,
+      "val_micro": 0.518,
+      "best_macro_so_far": 0.162,
+      "compute_left": 19,
+      "iters_used": 12
+    }
+  ],
+  "trace": [
+    {
+      "step": 0,
+      "action": "train",
+      "args": {
+        "method": "logreg"
+      },
+      "why": "Start the required model-family comparison on the default recipe.",
+      "obs": {
+        "ok": true,
+        "model": "logreg",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.088,
+          "micro_f1": 0.438
+        },
+        "compute_left": 29
+      }
+    },
+    {
+      "step": 1,
+      "action": "train",
+      "args": {
+        "method": "rf"
+      },
+      "why": "Compare the random-forest family against the current default-recipe logreg baseline before tuning.",
+      "obs": {
+        "ok": true,
+        "model": "rf",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.097,
+          "micro_f1": 0.474
+        },
+        "compute_left": 28
+      }
+    },
+    {
+      "step": 2,
+      "action": "train",
+      "args": {
+        "method": "xgb"
+      },
+      "why": "Compare the remaining required model family under the current default recipe and fixed threshold; RF currently leads at micro-F1 0.474.",
+      "obs": {
+        "ok": true,
+        "model": "xgb",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.084,
+          "micro_f1": 0.45
+        },
+        "compute_left": 27
+      }
+    },
+    {
+      "step": 3,
+      "action": "train_ensemble",
+      "args": {
+        "methods": [
+          "rf",
+          "logreg"
+        ]
+      },
+      "why": "Compare a soft-vote ensemble of the two strongest family results so far; RF leads on micro-F1 and logreg is the next-best distinct family.",
+      "obs": {
+        "ok": true,
+        "model": "ensemble:rf+logreg",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.083,
+          "micro_f1": 0.472
+        },
+        "compute_left": 25
+      }
+    },
+    {
+      "step": 4,
+      "action": "set_threshold_mode",
+      "args": {
+        "mode": "calibrated"
+      },
+      "why": "Tune the current best family’s decision thresholds; RF leads on micro-F1 under the default fixed threshold.",
+      "obs": {
+        "ok": true,
+        "threshold_mode": "calibrated",
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 5,
+      "action": "train",
+      "args": {
+        "method": "rf"
+      },
+      "why": "Retrain the best-performing random forest with the newly selected calibrated threshold mode; this is an untried configuration and may improve on the current best micro-F1 of 0.474.",
+      "obs": {
+        "ok": true,
+        "model": "rf",
+        "recipe": "default",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.2,
+          "micro_f1": 0.527
+        },
+        "compute_left": 24
+      }
+    },
+    {
+      "step": 6,
+      "action": "set_recipe",
+      "args": {
+        "recipe": "balanced"
+      },
+      "why": "The calibrated RF is the current best at micro-F1 0.527. Test the balanced recipe on that family next to see whether it improves micro-F1.",
+      "obs": {
+        "ok": true,
+        "recipe": "balanced",
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 7,
+      "action": "train",
+      "args": {
+        "method": "rf"
+      },
+      "why": "Measure the untried balanced recipe with the best-performing RF family and calibrated thresholds against the current best.",
+      "obs": {
+        "ok": true,
+        "model": "rf",
+        "recipe": "balanced",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.189,
+          "micro_f1": 0.503
+        },
+        "compute_left": 23
+      }
+    },
+    {
+      "step": 8,
+      "action": "set_hparams",
+      "args": {
+        "method": "rf",
+        "params": {
+          "n_estimators": 300,
+          "max_features": "sqrt",
+          "min_samples_leaf": 1
+        }
+      },
+      "why": "Tune the best-performing RF family; the default-recipe calibrated RF leads at micro-F1 0.527, while balanced sampling scored lower.",
+      "obs": {
+        "ok": true,
+        "method": "rf",
+        "hparams": {
+          "n_estimators": 300,
+          "max_features": "sqrt",
+          "min_samples_leaf": 1
+        },
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 9,
+      "action": "train",
+      "args": {
+        "method": "xgb"
+      },
+      "why": "Compare an untested model family using the current balanced recipe and calibrated thresholds; the ensemble underperformed the best random-forest configuration.",
+      "obs": {
+        "ok": true,
+        "model": "xgb",
+        "recipe": "balanced",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.162,
+          "micro_f1": 0.533
+        },
+        "compute_left": 22
+      }
+    },
+    {
+      "step": 10,
+      "action": "train",
+      "args": {
+        "method": "logreg"
+      },
+      "why": "Compare the untested logreg family under the current balanced, calibrated setup before using the remaining iteration on an ensemble.",
+      "obs": {
+        "ok": true,
+        "model": "logreg",
+        "recipe": "balanced",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.191,
+          "micro_f1": 0.456
+        },
+        "compute_left": 21
+      }
+    },
+    {
+      "step": 11,
+      "action": "train_ensemble",
+      "args": {
+        "methods": [
+          "xgb",
+          "rf"
+        ]
+      },
+      "why": "Evaluate a soft-vote ensemble of the two strongest tried families against the best micro-F1 of 0.533.",
+      "obs": {
+        "ok": true,
+        "model": "ensemble:xgb+rf",
+        "recipe": "balanced",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.171,
+          "micro_f1": 0.518
+        },
+        "compute_left": 19
+      }
+    }
+  ],
+  "policy_usage": {
+    "policy_model": "gpt-6-astra",
+    "api_calls": 12,
+    "prompt_tokens": 60809,
+    "completion_tokens": 1748,
+    "total_tokens": 62557,
+    "wall_sec": 169.8
   }
- ],
- "policy_usage": {
-  "policy_model": "gpt-6-astra",
-  "api_calls": 12,
-  "prompt_tokens": 60809,
-  "completion_tokens": 1748,
-  "total_tokens": 62557,
-  "wall_sec": 169.8
- }
 }

@@ -88,6 +88,16 @@ ACTIONS (choose exactly one per turn):
     state extras + condition features are always kept. Use it to test hypotheses like "only clinically
     persistent findings carry signal" or to prune noise/dilution concepts; your step and compute budgets bound
     how many subsets you can try. Retrain to measure. Only when STATE shows state_concepts.
+- {"action":"inspect_data","args":{}}
+    FREE read-only diagnostics: per-namespace train/val sizes, concept counts, guarded (too-rare) concepts,
+    total train positives, and the per-namespace internal-val micro-F1 of your most recent training pass.
+    micro-F1 pools all namespaces, each contributing roughly in proportion to its positives. Small n_val
+    slices give NOISY per-namespace feedback.
+- {"action":"set_ns_model","args":{"ns":"rad.xray_chest","spec":"ensemble:rf+xgb"}}
+    Override the model family/ensemble for ONE namespace (others keep the global spec); spec "global" clears.
+    Retrain to measure.
+- {"action":"set_ns_hparams","args":{"ns":"rad.xray_chest","method":"xgb","params":{"n_estimators":300}}}
+    Per-namespace hyperparameter override for one family, merged over the global hparams. Retrain to measure.
 - {"action":"stop","args":{}}
     End the search. Use when no untried, low-cost action is likely to beat best_so_far.
 
@@ -118,6 +128,7 @@ def main():
     env = TemporalEnv(compute_units=COMPUTE, eval_queries=0, max_iters=mi)  # eval_queries=0: no sealed test in this driver
     best = {"model": None, "recipe": None, "threshold_mode": None, "min_pos": None, "hparams": None,
             "feature_groups": None, "state_concepts": None, "state_concepts_mode": None,
+            "ns_spec": None, "ns_hparams": None,
             "transition_config": None, "macro": -1, "micro": -1}
     trace = []; history = []; last = {"note": "start"}; hist = []; model = POLICY
     term_reason = "max_iters"
@@ -131,6 +142,8 @@ def main():
                          "feature_groups": list(env.active_groups) if env.active_groups else None,
                          "state_concepts": list(env.active_concepts) if env.active_concepts else None,
                          "state_concepts_mode": (env.concept_mode if env.active_concepts else None),
+                         "ns_spec": dict(env.ns_spec) or None,
+                         "ns_hparams": json.loads(json.dumps(env.ns_hparams)) or None,
                          "transition_config": (dict(env.trans_cfg) if model_name == "transition" and env.trans_cfg else None),
                          "macro": v["macro_f1"], "micro": v["micro_f1"]})
 
@@ -167,6 +180,9 @@ def main():
         elif a == "resplit_val": last = env.resplit_val(**args)
         elif a == "set_feature_groups": last = env.set_feature_groups(args.get("groups", []))
         elif a == "set_state_concepts": last = env.set_state_concepts(args.get("names", []), args.get("mode", "evidence"))
+        elif a == "inspect_data": last = env.inspect_data()
+        elif a == "set_ns_model": last = env.set_ns_model(args.get("ns"), args.get("spec") or args.get("model"))
+        elif a == "set_ns_hparams": last = env.set_ns_hparams(args.get("ns"), args.get("method"), args.get("params", {}))
         elif a == "train":
             last = env.train(args.get("method", ""))
             if isinstance(last, dict) and last.get("internal_val"): record_best(args.get("method", ""))

@@ -21,6 +21,11 @@ ACTIONS = [
     {"thinking": "t", "action": "train", "args": {"method": "logreg"}, "why": "state-mode sklearn"},
     {"thinking": "t", "action": "train_transition", "args": {"config": {"cond_mode": "concat"}}, "why": "state-mode transition"},
     {"thinking": "t", "action": "train_transition", "args": {"config": {"learner": "xgb", "selfsup_ratio": 0.25}}, "why": "pooled full-state sklearn learner"},
+    {"thinking": "t", "action": "inspect_data", "args": {}, "why": "per-ns diagnostics"},
+    {"thinking": "t", "action": "set_ns_model", "args": {"ns": "rad.NOT_A_NS", "spec": "logreg"}, "why": "bad ns"},
+    {"thinking": "t", "action": "set_ns_model", "args": {"ns": "rad.xray_chest", "spec": "logreg"}, "why": "per-ns override"},
+    {"thinking": "t", "action": "set_ns_hparams", "args": {"ns": "rad.xray_chest", "method": "logreg", "params": {"C": 0.5}}, "why": "per-ns hparam"},
+    {"thinking": "t", "action": "train", "args": {"method": "xgb"}, "why": "global xgb + chest logreg override"},
     {"thinking": "t", "action": "stop", "args": {}, "why": "done"},
 ]
 it = iter(ACTIONS)
@@ -30,7 +35,7 @@ mock.chat_full = lambda messages, model="m", temperature=0.0, max_tokens=0, resp
 sys.modules["llm_client"] = mock
 sys.path.insert(0, "${VP_ROOT}")
 sys.path.insert(0, "${VP_ROOT}/analysis")
-sys.argv = ["agentB_train", "14", "mock-policy"]
+sys.argv = ["agentB_train", "20", "mock-policy"]
 
 import playground.agentB_train as A
 try:
@@ -42,7 +47,7 @@ dec = json.load(open(os.environ["VP_AGENT_DECISION"]))
 best = dec["best_config"]; tr = dec["trace"]
 print("\nbest_config:", json.dumps(best, ensure_ascii=False))
 assert dec["termination_reason"] == "model_stop"
-assert len(tr) == 13, len(tr)
+assert len(tr) == 18, len(tr)
 assert "error" in tr[1]["obs"], tr[1]["obs"]                       # unknown concept rejected
 assert tr[2]["obs"].get("n_selected") == 10, tr[2]["obs"]          # valid concept subset accepted (evidence mode)
 assert tr[5]["obs"].get("recipe") == "balanced", tr[5]["obs"]      # balanced reaches transition arm
@@ -54,6 +59,13 @@ ev9, ev10 = tr[9]["obs"].get("internal_val"), tr[10]["obs"].get("internal_val")
 assert ev9 and ev10, (ev9, ev10)                                   # both arms train under state mode
 cfg11 = tr[11]["obs"].get("config")                                # pooled sklearn learner in transition pathway
 assert cfg11 and cfg11["learner"] == "xgb" and tr[11]["obs"].get("internal_val"), tr[11]["obs"]
+ins = tr[12]["obs"]                                                 # inspect_data returns per-ns stats + last val
+assert ins.get("ok") and "rad.xray_chest" in ins.get("per_ns", {}), str(ins)[:120]
+assert ins["per_ns"]["rad.xray_chest"].get("val_micro_last_train") is not None
+assert "error" in tr[13]["obs"], tr[13]["obs"]                      # bad ns rejected
+assert tr[14]["obs"].get("ok") and tr[15]["obs"].get("ok")          # per-ns overrides accepted
+assert tr[16]["obs"].get("internal_val"), tr[16]["obs"]             # mixed global+override training works
+assert best.get("ns_spec") is None or isinstance(best.get("ns_spec"), dict)
 assert best["state_concepts"] == uc[:10], best["state_concepts"]
 assert best["state_concepts_mode"] in ("evidence", "state"), best
 print("MOCK DRIVER TEST PASSED")

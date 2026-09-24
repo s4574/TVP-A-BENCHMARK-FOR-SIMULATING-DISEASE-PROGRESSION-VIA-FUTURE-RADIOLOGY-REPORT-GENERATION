@@ -89,18 +89,19 @@ save(fig, "fig5_flicker")
 
 # ---------------- Fig 6: render spectrum (dot plot; truncated-axis bars are an anti-pattern) ----------------
 names = ["end-to-end\n(matched 4k ctx)", "state-only\nrender", "+ctx\nanchored", "+ctx\nadvisory",
-         "+mention-sel.\ninstruction", "advisory\n(full ~30k ctx)", "end-to-end\n(full ~30k ctx)"]
-vals = [.5031, .5041, .5138, .5233, .5174, .5270, .5550]
-cols = [ORANGE, BLUE, BLUE, BLUE, BLUE, BLUE, ORANGE]
+         "+mention-sel.\ninstruction", "advisory\n(full ctx)", "+probabilities\n(full ctx)", "end-to-end\n(full ctx)"]
+vals = [.5031, .5041, .5138, .5233, .5174, .5270, .5461, .5550]
+cols = [ORANGE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, ORANGE]
 fig, ax = plt.subplots(figsize=(4.6, 2.3))
 for i, (v, c) in enumerate(zip(vals, cols)):
     ax.plot([i, i], [.495, v], color="#d9d8d3", lw=1, zorder=1)
     ax.scatter([i], [v], s=42, color=c, zorder=3, alpha=.55 if i >= 5 else 1.0)
-    ax.text(i, v + .004, f"{v:.3f}", ha="center", fontsize=7, fontweight="bold" if i == 3 else "normal")
+    if i == 6: ax.scatter([i],[v], s=42, facecolor="none", edgecolor=INK, lw=.8, zorder=4)
+    ax.text(i, v + .004, f"{v:.3f}", ha="center", fontsize=7, fontweight="bold" if i in (3,6) else "normal")
 ax.axhline(.5031, color=ORANGE, lw=.8, ls=":")
 ax.annotate("+0.020 from structured state\nat matched context", xy=(3, .5233), xytext=(0.8, .548),
             fontsize=6.8, color=INK2, arrowprops=dict(arrowstyle="->", color=INK2, lw=.7))
-ax.text(5.5, .565, "full-context pair", ha="center", fontsize=6.2, color=INK2)
+ax.text(6.0, .568, "full-context family", ha="center", fontsize=6.2, color=INK2)
 ax.set_xticks(range(len(names))); ax.set_xticklabels(names, fontsize=6.3)
 ax.set_ylabel("report micro-F1"); ax.set_ylim(.495, .575)
 save(fig, "fig6_render")

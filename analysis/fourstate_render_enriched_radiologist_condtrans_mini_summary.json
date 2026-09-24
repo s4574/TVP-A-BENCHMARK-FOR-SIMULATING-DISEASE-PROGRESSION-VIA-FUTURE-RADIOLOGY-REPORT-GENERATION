@@ -1,0 +1,22 @@
+{
+  "n": 1419,
+  "tag": "enriched_radiologist_condtrans_mini",
+  "model": "gpt-5.4-mini",
+  "report_score_primary": {
+    "precision": 0.4052,
+    "recall": 0.7154,
+    "micro_f1": 0.5174
+  },
+  "state_dict_direct": {
+    "precision": 0.3761,
+    "recall": 0.7418,
+    "micro_f1": 0.4991
+  },
+  "report_parse_ok": 1419,
+  "wall_sec": 4140.5,
+  "baselines": {
+    "end2end_mini_report": 0.555,
+    "state_only_render": 0.5041,
+    "llm_module_report": 0.473
+  }
+}

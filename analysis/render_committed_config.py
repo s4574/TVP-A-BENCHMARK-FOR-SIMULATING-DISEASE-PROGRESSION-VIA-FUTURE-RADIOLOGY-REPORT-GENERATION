@@ -91,6 +91,8 @@ def predict_sealed_from_decision(pkl, decision_path):
     if best.get("state_concepts"):
         env.active_concepts = list(best["state_concepts"]); env.active_groups = None
         env.concept_mode = best.get("state_concepts_mode") or "evidence"
+    if best.get("ns_spec"): env.ns_spec = dict(best["ns_spec"])
+    if best.get("ns_hparams"): env.ns_hparams = {k: dict(v) for k, v in best["ns_hparams"].items()}
     model = best["model"]
     print(f"replaying committed config: {json.dumps({k: best.get(k) for k in ('model','recipe','threshold_mode','min_pos','hparams','feature_groups','state_concepts','state_concepts_mode','transition_config')}, ensure_ascii=False)}")
     if model == "transition":

@@ -1,950 +1,950 @@
 {
- "best_config": {
-  "model": "transition",
-  "recipe": "default",
-  "threshold_mode": "calibrated",
-  "min_pos": 5,
-  "hparams": {},
-  "feature_groups": null,
-  "state_concepts": null,
-  "state_concepts_mode": null,
-  "transition_config": {
-   "hidden": 128,
-   "depth": 2,
-   "dropout": 0.0,
-   "cond_mode": "concat",
-   "selfsup_ratio": 0.25,
-   "learner": "rf"
+  "best_config": {
+    "model": "transition",
+    "recipe": "default",
+    "threshold_mode": "calibrated",
+    "min_pos": 5,
+    "hparams": {},
+    "feature_groups": null,
+    "state_concepts": null,
+    "state_concepts_mode": null,
+    "transition_config": {
+      "hidden": 128,
+      "depth": 2,
+      "dropout": 0.0,
+      "cond_mode": "concat",
+      "selfsup_ratio": 0.25,
+      "learner": "rf"
+    },
+    "macro": 0.246,
+    "micro": 0.546
   },
-  "macro": 0.246,
-  "micro": 0.546
- },
- "trajectory_length": 23,
- "termination_reason": "model_stop",
- "budgets": {
-  "max_iters": 24,
-  "compute_units": 30,
-  "recent_window": 6,
-  "show_progress": false
- },
- "policy_model_start": "gpt-6-astra",
- "policy_model_final": "gpt-6-astra",
- "history": [
-  {
-   "step": 0,
-   "action": "train",
-   "model": "logreg",
-   "recipe": "default",
-   "threshold_mode": "fixed",
-   "min_pos": 5,
-   "val_macro": 0.137,
-   "val_micro": 0.446,
-   "best_macro_so_far": 0.137,
-   "compute_left": 29,
-   "iters_used": 1
+  "trajectory_length": 23,
+  "termination_reason": "model_stop",
+  "budgets": {
+    "max_iters": 24,
+    "compute_units": 30,
+    "recent_window": 6,
+    "show_progress": false
   },
-  {
-   "step": 1,
-   "action": "train",
-   "model": "rf",
-   "recipe": "default",
-   "threshold_mode": "fixed",
-   "min_pos": 5,
-   "val_macro": 0.115,
-   "val_micro": 0.465,
-   "best_macro_so_far": 0.115,
-   "compute_left": 28,
-   "iters_used": 2
-  },
-  {
-   "step": 2,
-   "action": "train",
-   "model": "xgb",
-   "recipe": "default",
-   "threshold_mode": "fixed",
-   "min_pos": 5,
-   "val_macro": 0.12,
-   "val_micro": 0.462,
-   "best_macro_so_far": 0.115,
-   "compute_left": 27,
-   "iters_used": 3
-  },
-  {
-   "step": 3,
-   "action": "set_threshold_mode",
-   "model": "xgb",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.115,
-   "compute_left": 27,
-   "iters_used": 4
-  },
-  {
-   "step": 4,
-   "action": "train",
-   "model": "rf",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.2,
-   "val_micro": 0.534,
-   "best_macro_so_far": 0.2,
-   "compute_left": 26,
-   "iters_used": 5
-  },
-  {
-   "step": 5,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.166,
-   "val_micro": 0.527,
-   "best_macro_so_far": 0.2,
-   "compute_left": 24,
-   "iters_used": 6
-  },
-  {
-   "step": 6,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.159,
-   "val_micro": 0.501,
-   "best_macro_so_far": 0.2,
-   "compute_left": 22,
-   "iters_used": 7
-  },
-  {
-   "step": 7,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.202,
-   "val_micro": 0.524,
-   "best_macro_so_far": 0.2,
-   "compute_left": 20,
-   "iters_used": 8
-  },
-  {
-   "step": 8,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.246,
-   "val_micro": 0.546,
-   "best_macro_so_far": 0.246,
-   "compute_left": 18,
-   "iters_used": 9
-  },
-  {
-   "step": 9,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.262,
-   "val_micro": 0.54,
-   "best_macro_so_far": 0.246,
-   "compute_left": 16,
-   "iters_used": 10
-  },
-  {
-   "step": 10,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.178,
-   "val_micro": 0.542,
-   "best_macro_so_far": 0.246,
-   "compute_left": 14,
-   "iters_used": 11
-  },
-  {
-   "step": 11,
-   "action": "set_recipe",
-   "model": "transition",
-   "recipe": "balanced",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.246,
-   "compute_left": 14,
-   "iters_used": 12
-  },
-  {
-   "step": 12,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "balanced",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.239,
-   "val_micro": 0.536,
-   "best_macro_so_far": 0.246,
-   "compute_left": 12,
-   "iters_used": 13
-  },
-  {
-   "step": 13,
-   "action": "set_recipe",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.246,
-   "compute_left": 12,
-   "iters_used": 14
-  },
-  {
-   "step": 14,
-   "action": "set_recipe",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.246,
-   "compute_left": 12,
-   "iters_used": 15
-  },
-  {
-   "step": 15,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.247,
-   "val_micro": 0.535,
-   "best_macro_so_far": 0.246,
-   "compute_left": 10,
-   "iters_used": 16
-  },
-  {
-   "step": 16,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.202,
-   "val_micro": 0.524,
-   "best_macro_so_far": 0.246,
-   "compute_left": 8,
-   "iters_used": 17
-  },
-  {
-   "step": 17,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.178,
-   "val_micro": 0.542,
-   "best_macro_so_far": 0.246,
-   "compute_left": 6,
-   "iters_used": 18
-  },
-  {
-   "step": 18,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.178,
-   "val_micro": 0.542,
-   "best_macro_so_far": 0.246,
-   "compute_left": 4,
-   "iters_used": 19
-  },
-  {
-   "step": 19,
-   "action": "set_feature_groups",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.246,
-   "compute_left": 4,
-   "iters_used": 20
-  },
-  {
-   "step": 20,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.189,
-   "val_micro": 0.536,
-   "best_macro_so_far": 0.246,
-   "compute_left": 2,
-   "iters_used": 21
-  },
-  {
-   "step": 21,
-   "action": "train_transition",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": 0.168,
-   "val_micro": 0.528,
-   "best_macro_so_far": 0.246,
-   "compute_left": 0,
-   "iters_used": 22
-  },
-  {
-   "step": 22,
-   "action": "stop",
-   "model": "transition",
-   "recipe": "default",
-   "threshold_mode": "calibrated",
-   "min_pos": 5,
-   "val_macro": null,
-   "val_micro": null,
-   "best_macro_so_far": 0.246,
-   "compute_left": 0,
-   "iters_used": 23
+  "policy_model_start": "gpt-6-astra",
+  "policy_model_final": "gpt-6-astra",
+  "history": [
+    {
+      "step": 0,
+      "action": "train",
+      "model": "logreg",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.137,
+      "val_micro": 0.446,
+      "best_macro_so_far": 0.137,
+      "compute_left": 29,
+      "iters_used": 1
+    },
+    {
+      "step": 1,
+      "action": "train",
+      "model": "rf",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.115,
+      "val_micro": 0.465,
+      "best_macro_so_far": 0.115,
+      "compute_left": 28,
+      "iters_used": 2
+    },
+    {
+      "step": 2,
+      "action": "train",
+      "model": "xgb",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.12,
+      "val_micro": 0.462,
+      "best_macro_so_far": 0.115,
+      "compute_left": 27,
+      "iters_used": 3
+    },
+    {
+      "step": 3,
+      "action": "set_threshold_mode",
+      "model": "xgb",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.115,
+      "compute_left": 27,
+      "iters_used": 4
+    },
+    {
+      "step": 4,
+      "action": "train",
+      "model": "rf",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.2,
+      "val_micro": 0.534,
+      "best_macro_so_far": 0.2,
+      "compute_left": 26,
+      "iters_used": 5
+    },
+    {
+      "step": 5,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.166,
+      "val_micro": 0.527,
+      "best_macro_so_far": 0.2,
+      "compute_left": 24,
+      "iters_used": 6
+    },
+    {
+      "step": 6,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.159,
+      "val_micro": 0.501,
+      "best_macro_so_far": 0.2,
+      "compute_left": 22,
+      "iters_used": 7
+    },
+    {
+      "step": 7,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.202,
+      "val_micro": 0.524,
+      "best_macro_so_far": 0.2,
+      "compute_left": 20,
+      "iters_used": 8
+    },
+    {
+      "step": 8,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.246,
+      "val_micro": 0.546,
+      "best_macro_so_far": 0.246,
+      "compute_left": 18,
+      "iters_used": 9
+    },
+    {
+      "step": 9,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.262,
+      "val_micro": 0.54,
+      "best_macro_so_far": 0.246,
+      "compute_left": 16,
+      "iters_used": 10
+    },
+    {
+      "step": 10,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.178,
+      "val_micro": 0.542,
+      "best_macro_so_far": 0.246,
+      "compute_left": 14,
+      "iters_used": 11
+    },
+    {
+      "step": 11,
+      "action": "set_recipe",
+      "model": "transition",
+      "recipe": "balanced",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.246,
+      "compute_left": 14,
+      "iters_used": 12
+    },
+    {
+      "step": 12,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "balanced",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.239,
+      "val_micro": 0.536,
+      "best_macro_so_far": 0.246,
+      "compute_left": 12,
+      "iters_used": 13
+    },
+    {
+      "step": 13,
+      "action": "set_recipe",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.246,
+      "compute_left": 12,
+      "iters_used": 14
+    },
+    {
+      "step": 14,
+      "action": "set_recipe",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.246,
+      "compute_left": 12,
+      "iters_used": 15
+    },
+    {
+      "step": 15,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.247,
+      "val_micro": 0.535,
+      "best_macro_so_far": 0.246,
+      "compute_left": 10,
+      "iters_used": 16
+    },
+    {
+      "step": 16,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.202,
+      "val_micro": 0.524,
+      "best_macro_so_far": 0.246,
+      "compute_left": 8,
+      "iters_used": 17
+    },
+    {
+      "step": 17,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.178,
+      "val_micro": 0.542,
+      "best_macro_so_far": 0.246,
+      "compute_left": 6,
+      "iters_used": 18
+    },
+    {
+      "step": 18,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.178,
+      "val_micro": 0.542,
+      "best_macro_so_far": 0.246,
+      "compute_left": 4,
+      "iters_used": 19
+    },
+    {
+      "step": 19,
+      "action": "set_feature_groups",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.246,
+      "compute_left": 4,
+      "iters_used": 20
+    },
+    {
+      "step": 20,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.189,
+      "val_micro": 0.536,
+      "best_macro_so_far": 0.246,
+      "compute_left": 2,
+      "iters_used": 21
+    },
+    {
+      "step": 21,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": 0.168,
+      "val_micro": 0.528,
+      "best_macro_so_far": 0.246,
+      "compute_left": 0,
+      "iters_used": 22
+    },
+    {
+      "step": 22,
+      "action": "stop",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "calibrated",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.246,
+      "compute_left": 0,
+      "iters_used": 23
+    }
+  ],
+  "trace": [
+    {
+      "step": 0,
+      "action": "train",
+      "args": {
+        "method": "logreg"
+      },
+      "why": "Establish a strong low-cost linear reference before spending compute on nonlinear models or calibration.",
+      "thinking": "No configuration has been tried yet, so the first step is a baseline family comparison under the default recipe, fixed thresholds, and default feature selection. Logreg is the cheapest strong linear reference for sparse, highly imbalanced multilabel clinical findings; rf and xgb can follow if it is competitive. No options need to be excluded yet because all model families and threshold calibration remain untried.",
+      "obs": {
+        "ok": true,
+        "model": "logreg",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.137,
+          "micro_f1": 0.446
+        },
+        "compute_left": 29
+      }
+    },
+    {
+      "step": 1,
+      "action": "train",
+      "args": {
+        "method": "rf"
+      },
+      "why": "Measure the next recommended model family under the incumbent recipe and threshold settings.",
+      "thinking": "The current best is fixed-threshold default-recipe logreg at micro-F1 0.446. RF, XGB, MLP, ensembles, calibrated thresholds, recipes, feature groups, and transition models remain untried; I will compare RF next under the same settings because it is a low-cost family benchmark and may capture nonlinear state transitions missed by logreg.",
+      "obs": {
+        "ok": true,
+        "model": "rf",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.115,
+          "micro_f1": 0.465
+        },
+        "compute_left": 28
+      }
+    },
+    {
+      "step": 2,
+      "action": "train",
+      "args": {
+        "method": "xgb"
+      },
+      "why": "XGB is the strongest untried single-family candidate and provides the needed comparison before tuning or ensembling.",
+      "thinking": "The current best is RF with default recipe and fixed thresholds at micro-F1 0.465; logistic regression scored lower at 0.446. XGB remains untried among the recommended strong families, while calibrated thresholds and ensembles also remain unexplored. I will test XGB under the same settings first because it can directly challenge the RF baseline before spending actions on calibration or ensembling.",
+      "obs": {
+        "ok": true,
+        "model": "xgb",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.12,
+          "micro_f1": 0.462
+        },
+        "compute_left": 27
+      }
+    },
+    {
+      "step": 3,
+      "action": "set_threshold_mode",
+      "args": {
+        "mode": "calibrated"
+      },
+      "why": "Per-concept threshold calibration is likely to improve micro-F1 substantially over the fixed 0.5 cutoff.",
+      "thinking": "The best measured configuration is default RF at micro-F1 0.465, ahead of XGB and logistic regression. Remaining high-value options include calibrated thresholds, ensembles, transition models, feature selection, and recipe changes; calibrated thresholds are the most likely immediate micro-F1 gain for this imbalanced multilabel task. I will enable calibration now, then retrain the best RF configuration next.",
+      "obs": {
+        "ok": true,
+        "threshold_mode": "calibrated",
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 4,
+      "action": "train",
+      "args": {
+        "method": "rf"
+      },
+      "why": "Measure per-concept calibrated thresholds on the strongest observed model family.",
+      "thinking": "The best result is default RF with fixed thresholds at micro-F1 0.465. Calibrated RF remains untried and threshold calibration can improve imbalanced multilabel performance, while calibrated XGB is lower at 0.462. I will retrain RF under the current calibrated threshold mode before exploring transition-model variants or feature selection.",
+      "obs": {
+        "ok": true,
+        "model": "rf",
+        "recipe": "default",
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.2,
+          "micro_f1": 0.534
+        },
+        "compute_left": 26
+      }
+    },
+    {
+      "step": 5,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "mlp"
+        }
+      },
+      "why": "The full-state conditional model can capture cross-concept and condition interactions that the per-target RF misses.",
+      "thinking": "The best measured configuration is calibrated RF at micro-F1 0.534. Calibrated logreg and XGB have not been tried, and the transition arm is also untried; because it models the full prior state plus clinical conditions, it has the highest likely upside despite costing two compute units. I will test its default MLP transition configuration with the current calibrated thresholds and default recipe.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "mlp"
+        },
+        "recipe": "default",
+        "val_ce": 0.568,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.166,
+          "micro_f1": 0.527
+        },
+        "compute_left": 24
+      }
+    },
+    {
+      "step": 6,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "film",
+          "selfsup_ratio": 0.25,
+          "learner": "mlp"
+        }
+      },
+      "why": "Tests the untried transition condition-interaction mechanism against the current transition baseline.",
+      "thinking": "The best result remains calibrated default RF at micro-F1 0.534. The transition model with concat and self-supervision ratio 0.25 reached 0.527, so it has not surpassed the RF baseline, but its alternative condition interaction mode remains untried. I will test transition with FiLM while keeping the strongest transition settings unchanged; this is a plausible micro-F1 improvement because it can model condition-dependent effects on prior state features.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "film",
+          "selfsup_ratio": 0.25,
+          "learner": "mlp"
+        },
+        "recipe": "default",
+        "val_ce": 0.5792,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.159,
+          "micro_f1": 0.501
+        },
+        "compute_left": 22
+      }
+    },
+    {
+      "step": 7,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.5,
+          "learner": "mlp"
+        }
+      },
+      "why": "Tests a promising transition architecture with stronger continuity supervision, which could close the small gap to the best RF.",
+      "thinking": "The best result remains calibrated default RF at micro-F1 0.534. Transition concat reached 0.527, close enough to justify another transition trial, while film fell to 0.501. Remaining untried transition settings include concat with selfsup_ratio 0.5 or 0.0 and altered depth/hidden; selfsup 0.5 is the strongest next test because identity anchoring may improve state continuity without abandoning the better concat interaction structure.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.5,
+          "learner": "mlp"
+        },
+        "recipe": "default",
+        "val_ce": 0.5745,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.202,
+          "micro_f1": 0.524
+        },
+        "compute_left": 20
+      }
+    },
+    {
+      "step": 8,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "rf"
+        }
+      },
+      "why": "A pooled full-state RF may outperform per-target RF by sharing signal across exam types while preserving the best calibrated threshold setting.",
+      "thinking": "The best result remains calibrated default RF at micro-F1 0.534. Transition MLP variants reached 0.527 and 0.524, with film underperforming concat; transition learners using pooled RF or XGB remain untried and can exploit the full state while retaining calibrated thresholds. I will test pooled RF with the stronger concat formulation and moderate identity self-supervision, since it is the closest untried alternative to the current best family and costs two units.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "rf"
+        },
+        "recipe": "default",
+        "val_ce": 0.2314,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.246,
+          "micro_f1": 0.546
+        },
+        "compute_left": 18
+      }
+    },
+    {
+      "step": 9,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "learner": "rf",
+          "selfsup_ratio": 0.5
+        }
+      },
+      "why": "Tests a new self-supervision ratio on the current best transition learner while preserving calibrated thresholds and the default recipe.",
+      "thinking": "The best result is the calibrated transition RF at micro-F1 0.546, while transition MLP variants underperformed. Remaining promising untried options include transition RF with different self-supervision ratios and feature-group restrictions; changing to selfsup_ratio 0.5 is a low-cost direct test of whether stronger identity anchoring improves the strongest learner. I will keep the winning RF learner and all other settings unchanged.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.5,
+          "learner": "rf"
+        },
+        "recipe": "default",
+        "val_ce": 0.2283,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.262,
+          "micro_f1": 0.54
+        },
+        "compute_left": 16
+      }
+    },
+    {
+      "step": 10,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "xgb"
+        }
+      },
+      "why": "Tests the strongest remaining transition learner against the current best configuration.",
+      "thinking": "The best result is the transition RF with concat conditioning, selfsup_ratio 0.25, default recipe, and calibrated thresholds at micro-F1 0.546. The recent MLP transition variants were weaker, while the RF transition is currently strongest; untried pooled transition learners include xgb and logreg. I will test transition xgb with the best RF configuration because boosted trees may improve nonlinear state-condition interactions without changing the validated recipe or thresholding.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "xgb"
+        },
+        "recipe": "default",
+        "val_ce": 0.2595,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.178,
+          "micro_f1": 0.542
+        },
+        "compute_left": 14
+      }
+    },
+    {
+      "step": 11,
+      "action": "set_recipe",
+      "args": {
+        "recipe": "balanced"
+      },
+      "why": "Class weighting may improve the many rare concept labels while preserving the strongest transition RF architecture.",
+      "thinking": "The best observed micro-F1 is 0.546 from the transition RF with default recipe, calibrated thresholds, and selfsup_ratio 0.25. Transition MLP and film variants were weaker, while RF remains the strongest transition learner; the main promising untried low-cost axis is class balancing for rare findings. I will switch to balanced training, then measure the same best transition configuration on the next action.",
+      "obs": {
+        "ok": true,
+        "recipe": "balanced",
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 12,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "learner": "rf",
+          "selfsup_ratio": 0.25
+        }
+      },
+      "why": "Measures the strongest untried model configuration under the newly selected balanced recipe.",
+      "thinking": "The best measured configuration is the transition random-forest learner with concat conditioning, selfsup_ratio 0.25, calibrated thresholds, and default recipe at micro-F1 0.546. Balanced recipe is pending and has not yet been measured for this strongest transition configuration; the recent balanced xgb result at 0.542 does not evaluate the rf configuration. I will retrain the best transition learner under balanced weighting to test whether rare-concept weighting improves micro-F1.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "rf"
+        },
+        "recipe": "balanced",
+        "val_ce": 0.2336,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.239,
+          "micro_f1": 0.536
+        },
+        "compute_left": 12
+      }
+    },
+    {
+      "step": 13,
+      "action": "set_recipe",
+      "args": {
+        "recipe": "default"
+      },
+      "why": "Restore the recipe associated with the best micro-F1 before measuring another transition RF configuration.",
+      "thinking": "The best result remains transition RF with default recipe and calibrated thresholds at micro-F1 0.546; balanced reduced it to 0.536. Balanced RF at selfsup_ratio 0.5 reached 0.540, so I should return to the stronger default recipe before testing a distinct transition configuration. The default-recipe RF with selfsup_ratio 0.5 is a promising untried comparison against the best 0.25 setting.",
+      "obs": {
+        "ok": true,
+        "recipe": "default",
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 14,
+      "action": "set_recipe",
+      "args": {
+        "recipe": "default"
+      },
+      "why": "Restore the recipe associated with the current best before evaluating a new transition configuration.",
+      "thinking": "The best result remains the default-recipe RF transition model at micro-F1 0.546; balanced reduced it to 0.536. The RF self-supervision ratio 0.5 also underperformed, while concat at 0.25 has already been tested. Setting the recipe back to default is needed before testing an untried condition-interaction mode, film, against the strongest recipe.",
+      "obs": {
+        "ok": true,
+        "recipe": "default",
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 15,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "learner": "rf",
+          "selfsup_ratio": 0.25,
+          "cond_mode": "film"
+        }
+      },
+      "why": "Tests the most promising untried transition interaction architecture while preserving the best recipe, calibration, and RF learner.",
+      "thinking": "The best result is the default-recipe calibrated transition RF with concat conditioning and selfsup_ratio 0.25 at micro-F1 0.546. The RF selfsup 0.5 variant was slightly worse, while xgb was also worse; the strongest untried high-value option is the RF transition model with FiLM conditioning, which may capture condition-by-state interactions better than concat. The pending recipe is default, so I will evaluate that configuration directly.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "film",
+          "selfsup_ratio": 0.25,
+          "learner": "rf"
+        },
+        "recipe": "default",
+        "val_ce": 0.2403,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.247,
+          "micro_f1": 0.535
+        },
+        "compute_left": 10
+      }
+    },
+    {
+      "step": 16,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.5,
+          "learner": "mlp"
+        }
+      },
+      "why": "Tests an untried expressive transition model with stronger identity anchoring, the most plausible route to exceed the current 0.546 micro-F1.",
+      "thinking": "The best observed micro-F1 is 0.546 from the transition arm, while recent RF and XGB variants reached only 0.540 and 0.542. The remaining high-value transition options include MLP configurations with explicit condition-state interaction; MLP with concat and self-supervision 0.5 is not listed as tried and should be more expressive than the weaker pooled RF/XGB variants. I will test that configuration under the already beneficial calibrated-threshold setting and default recipe.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.5,
+          "learner": "mlp"
+        },
+        "recipe": "default",
+        "val_ce": 0.5745,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.202,
+          "micro_f1": 0.524
+        },
+        "compute_left": 8
+      }
+    },
+    {
+      "step": 17,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "film",
+          "selfsup_ratio": 0.25,
+          "learner": "xgb"
+        }
+      },
+      "why": "Tests the strongest recent transition learner with the untried film condition interaction, at cost 2.",
+      "thinking": "The best observed micro-F1 is 0.546 from the transition arm, while recent transition variants show xgb at 0.542 with concat and rf at 0.535 with film. The xgb+film+selfsup_ratio=0.25 configuration remains untried and directly tests the strongest learner with the alternate condition interaction mode, making it the most likely low-cost improvement. Balanced rf and the current mlp are weaker, so I will stay with default recipe and calibrated thresholds.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "film",
+          "selfsup_ratio": 0.25,
+          "learner": "xgb"
+        },
+        "recipe": "default",
+        "val_ce": 0.2595,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.178,
+          "micro_f1": 0.542
+        },
+        "compute_left": 6
+      }
+    },
+    {
+      "step": 18,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "learner": "xgb",
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25
+        }
+      },
+      "why": "XGB is the strongest recent transition learner, and concat is an untried alternative to its FiLM conditioning that may improve micro-F1.",
+      "thinking": "The current best internal micro-F1 is 0.546 from a calibrated default transition model. Recent trials show RF and MLP below this, while XGB with FiLM reached 0.542; the corresponding XGB concat configuration has not been tried and directly tests the strongest remaining transition interaction choice. I will keep the successful default recipe and calibrated thresholds, using the same self-supervision ratio to isolate the conditioning architecture.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "xgb"
+        },
+        "recipe": "default",
+        "val_ce": 0.2595,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.178,
+          "micro_f1": 0.542
+        },
+        "compute_left": 4
+      }
+    },
+    {
+      "step": 19,
+      "action": "set_feature_groups",
+      "args": {
+        "groups": [
+          "self"
+        ]
+      },
+      "why": "Testing the compact self-state representation is the most promising untried low-cost change for improving the best transition model.",
+      "thinking": "The best observed configuration is the calibrated transition model at micro-F1 0.546, while the recent transition variants are lower. Feature groups are available and have not been tested for this transition setup; restricting inputs to the target exam's own prior state should reduce cross-concept noise while retaining mandatory condition features. I will set the feature groups to self, then use the next iteration to retrain the strongest transition configuration.",
+      "obs": {
+        "ok": true,
+        "feature_groups": [
+          "self"
+        ],
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 20,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "learner": "rf",
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25
+        }
+      },
+      "why": "Tests the remaining promising RF transition variant and may improve on the current 0.546 micro-F1 best.",
+      "thinking": "The best known configuration is the calibrated transition model at micro-F1 0.546. Recent transition trials show xgb at 0.542 in both tested condition modes and RF with film at 0.535; RF with concat remains untried and is a plausible low-cost comparison because concat may preserve condition effects more directly. I will test that configuration while retaining the current default recipe, self features, and calibrated thresholds.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "rf"
+        },
+        "recipe": "default",
+        "val_ce": 0.2633,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.189,
+          "micro_f1": 0.536
+        },
+        "compute_left": 2
+      }
+    },
+    {
+      "step": 21,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "learner": "xgb",
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.5
+        }
+      },
+      "why": "Tune the strongest recent transition learner with a higher self-supervision ratio to seek a micro-F1 gain.",
+      "thinking": "Best is calibrated transition at micro-F1 0.546. Tried transition xgb with concat/film at selfsup_ratio 0.25 (0.542), rf variants, and mlp at 0.5, but xgb remains the strongest recent family. The highest-value untried transition variant is xgb with a larger identity self-supervision mix, which may improve state continuity while retaining the condition model; it uses the remaining 2 compute units.",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.5,
+          "learner": "xgb"
+        },
+        "recipe": "default",
+        "val_ce": 0.2862,
+        "threshold_mode": "calibrated",
+        "internal_val": {
+          "macro_f1": 0.168,
+          "micro_f1": 0.528
+        },
+        "compute_left": 0
+      }
+    },
+    {
+      "step": 22,
+      "action": "stop",
+      "why": "No compute remains for a new measurement, and the incumbent micro-F1 of 0.546 is already higher than all recent alternatives."
+    }
+  ],
+  "policy_usage": {
+    "policy_model": "gpt-6-astra",
+    "api_calls": 23,
+    "prompt_tokens": 174523,
+    "completion_tokens": 6116,
+    "total_tokens": 180639,
+    "wall_sec": 965.3
   }
- ],
- "trace": [
-  {
-   "step": 0,
-   "action": "train",
-   "args": {
-    "method": "logreg"
-   },
-   "why": "Establish a strong low-cost linear reference before spending compute on nonlinear models or calibration.",
-   "thinking": "No configuration has been tried yet, so the first step is a baseline family comparison under the default recipe, fixed thresholds, and default feature selection. Logreg is the cheapest strong linear reference for sparse, highly imbalanced multilabel clinical findings; rf and xgb can follow if it is competitive. No options need to be excluded yet because all model families and threshold calibration remain untried.",
-   "obs": {
-    "ok": true,
-    "model": "logreg",
-    "recipe": "default",
-    "threshold_mode": "fixed",
-    "internal_val": {
-     "macro_f1": 0.137,
-     "micro_f1": 0.446
-    },
-    "compute_left": 29
-   }
-  },
-  {
-   "step": 1,
-   "action": "train",
-   "args": {
-    "method": "rf"
-   },
-   "why": "Measure the next recommended model family under the incumbent recipe and threshold settings.",
-   "thinking": "The current best is fixed-threshold default-recipe logreg at micro-F1 0.446. RF, XGB, MLP, ensembles, calibrated thresholds, recipes, feature groups, and transition models remain untried; I will compare RF next under the same settings because it is a low-cost family benchmark and may capture nonlinear state transitions missed by logreg.",
-   "obs": {
-    "ok": true,
-    "model": "rf",
-    "recipe": "default",
-    "threshold_mode": "fixed",
-    "internal_val": {
-     "macro_f1": 0.115,
-     "micro_f1": 0.465
-    },
-    "compute_left": 28
-   }
-  },
-  {
-   "step": 2,
-   "action": "train",
-   "args": {
-    "method": "xgb"
-   },
-   "why": "XGB is the strongest untried single-family candidate and provides the needed comparison before tuning or ensembling.",
-   "thinking": "The current best is RF with default recipe and fixed thresholds at micro-F1 0.465; logistic regression scored lower at 0.446. XGB remains untried among the recommended strong families, while calibrated thresholds and ensembles also remain unexplored. I will test XGB under the same settings first because it can directly challenge the RF baseline before spending actions on calibration or ensembling.",
-   "obs": {
-    "ok": true,
-    "model": "xgb",
-    "recipe": "default",
-    "threshold_mode": "fixed",
-    "internal_val": {
-     "macro_f1": 0.12,
-     "micro_f1": 0.462
-    },
-    "compute_left": 27
-   }
-  },
-  {
-   "step": 3,
-   "action": "set_threshold_mode",
-   "args": {
-    "mode": "calibrated"
-   },
-   "why": "Per-concept threshold calibration is likely to improve micro-F1 substantially over the fixed 0.5 cutoff.",
-   "thinking": "The best measured configuration is default RF at micro-F1 0.465, ahead of XGB and logistic regression. Remaining high-value options include calibrated thresholds, ensembles, transition models, feature selection, and recipe changes; calibrated thresholds are the most likely immediate micro-F1 gain for this imbalanced multilabel task. I will enable calibration now, then retrain the best RF configuration next.",
-   "obs": {
-    "ok": true,
-    "threshold_mode": "calibrated",
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 4,
-   "action": "train",
-   "args": {
-    "method": "rf"
-   },
-   "why": "Measure per-concept calibrated thresholds on the strongest observed model family.",
-   "thinking": "The best result is default RF with fixed thresholds at micro-F1 0.465. Calibrated RF remains untried and threshold calibration can improve imbalanced multilabel performance, while calibrated XGB is lower at 0.462. I will retrain RF under the current calibrated threshold mode before exploring transition-model variants or feature selection.",
-   "obs": {
-    "ok": true,
-    "model": "rf",
-    "recipe": "default",
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.2,
-     "micro_f1": 0.534
-    },
-    "compute_left": 26
-   }
-  },
-  {
-   "step": 5,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.25,
-     "learner": "mlp"
-    }
-   },
-   "why": "The full-state conditional model can capture cross-concept and condition interactions that the per-target RF misses.",
-   "thinking": "The best measured configuration is calibrated RF at micro-F1 0.534. Calibrated logreg and XGB have not been tried, and the transition arm is also untried; because it models the full prior state plus clinical conditions, it has the highest likely upside despite costing two compute units. I will test its default MLP transition configuration with the current calibrated thresholds and default recipe.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.25,
-     "learner": "mlp"
-    },
-    "recipe": "default",
-    "val_ce": 0.568,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.166,
-     "micro_f1": 0.527
-    },
-    "compute_left": 24
-   }
-  },
-  {
-   "step": 6,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "film",
-     "selfsup_ratio": 0.25,
-     "learner": "mlp"
-    }
-   },
-   "why": "Tests the untried transition condition-interaction mechanism against the current transition baseline.",
-   "thinking": "The best result remains calibrated default RF at micro-F1 0.534. The transition model with concat and self-supervision ratio 0.25 reached 0.527, so it has not surpassed the RF baseline, but its alternative condition interaction mode remains untried. I will test transition with FiLM while keeping the strongest transition settings unchanged; this is a plausible micro-F1 improvement because it can model condition-dependent effects on prior state features.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "film",
-     "selfsup_ratio": 0.25,
-     "learner": "mlp"
-    },
-    "recipe": "default",
-    "val_ce": 0.5792,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.159,
-     "micro_f1": 0.501
-    },
-    "compute_left": 22
-   }
-  },
-  {
-   "step": 7,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.5,
-     "learner": "mlp"
-    }
-   },
-   "why": "Tests a promising transition architecture with stronger continuity supervision, which could close the small gap to the best RF.",
-   "thinking": "The best result remains calibrated default RF at micro-F1 0.534. Transition concat reached 0.527, close enough to justify another transition trial, while film fell to 0.501. Remaining untried transition settings include concat with selfsup_ratio 0.5 or 0.0 and altered depth/hidden; selfsup 0.5 is the strongest next test because identity anchoring may improve state continuity without abandoning the better concat interaction structure.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.5,
-     "learner": "mlp"
-    },
-    "recipe": "default",
-    "val_ce": 0.5745,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.202,
-     "micro_f1": 0.524
-    },
-    "compute_left": 20
-   }
-  },
-  {
-   "step": 8,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.25,
-     "learner": "rf"
-    }
-   },
-   "why": "A pooled full-state RF may outperform per-target RF by sharing signal across exam types while preserving the best calibrated threshold setting.",
-   "thinking": "The best result remains calibrated default RF at micro-F1 0.534. Transition MLP variants reached 0.527 and 0.524, with film underperforming concat; transition learners using pooled RF or XGB remain untried and can exploit the full state while retaining calibrated thresholds. I will test pooled RF with the stronger concat formulation and moderate identity self-supervision, since it is the closest untried alternative to the current best family and costs two units.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.25,
-     "learner": "rf"
-    },
-    "recipe": "default",
-    "val_ce": 0.2314,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.246,
-     "micro_f1": 0.546
-    },
-    "compute_left": 18
-   }
-  },
-  {
-   "step": 9,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "learner": "rf",
-     "selfsup_ratio": 0.5
-    }
-   },
-   "why": "Tests a new self-supervision ratio on the current best transition learner while preserving calibrated thresholds and the default recipe.",
-   "thinking": "The best result is the calibrated transition RF at micro-F1 0.546, while transition MLP variants underperformed. Remaining promising untried options include transition RF with different self-supervision ratios and feature-group restrictions; changing to selfsup_ratio 0.5 is a low-cost direct test of whether stronger identity anchoring improves the strongest learner. I will keep the winning RF learner and all other settings unchanged.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.5,
-     "learner": "rf"
-    },
-    "recipe": "default",
-    "val_ce": 0.2283,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.262,
-     "micro_f1": 0.54
-    },
-    "compute_left": 16
-   }
-  },
-  {
-   "step": 10,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.25,
-     "learner": "xgb"
-    }
-   },
-   "why": "Tests the strongest remaining transition learner against the current best configuration.",
-   "thinking": "The best result is the transition RF with concat conditioning, selfsup_ratio 0.25, default recipe, and calibrated thresholds at micro-F1 0.546. The recent MLP transition variants were weaker, while the RF transition is currently strongest; untried pooled transition learners include xgb and logreg. I will test transition xgb with the best RF configuration because boosted trees may improve nonlinear state-condition interactions without changing the validated recipe or thresholding.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.25,
-     "learner": "xgb"
-    },
-    "recipe": "default",
-    "val_ce": 0.2595,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.178,
-     "micro_f1": 0.542
-    },
-    "compute_left": 14
-   }
-  },
-  {
-   "step": 11,
-   "action": "set_recipe",
-   "args": {
-    "recipe": "balanced"
-   },
-   "why": "Class weighting may improve the many rare concept labels while preserving the strongest transition RF architecture.",
-   "thinking": "The best observed micro-F1 is 0.546 from the transition RF with default recipe, calibrated thresholds, and selfsup_ratio 0.25. Transition MLP and film variants were weaker, while RF remains the strongest transition learner; the main promising untried low-cost axis is class balancing for rare findings. I will switch to balanced training, then measure the same best transition configuration on the next action.",
-   "obs": {
-    "ok": true,
-    "recipe": "balanced",
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 12,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "learner": "rf",
-     "selfsup_ratio": 0.25
-    }
-   },
-   "why": "Measures the strongest untried model configuration under the newly selected balanced recipe.",
-   "thinking": "The best measured configuration is the transition random-forest learner with concat conditioning, selfsup_ratio 0.25, calibrated thresholds, and default recipe at micro-F1 0.546. Balanced recipe is pending and has not yet been measured for this strongest transition configuration; the recent balanced xgb result at 0.542 does not evaluate the rf configuration. I will retrain the best transition learner under balanced weighting to test whether rare-concept weighting improves micro-F1.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.25,
-     "learner": "rf"
-    },
-    "recipe": "balanced",
-    "val_ce": 0.2336,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.239,
-     "micro_f1": 0.536
-    },
-    "compute_left": 12
-   }
-  },
-  {
-   "step": 13,
-   "action": "set_recipe",
-   "args": {
-    "recipe": "default"
-   },
-   "why": "Restore the recipe associated with the best micro-F1 before measuring another transition RF configuration.",
-   "thinking": "The best result remains transition RF with default recipe and calibrated thresholds at micro-F1 0.546; balanced reduced it to 0.536. Balanced RF at selfsup_ratio 0.5 reached 0.540, so I should return to the stronger default recipe before testing a distinct transition configuration. The default-recipe RF with selfsup_ratio 0.5 is a promising untried comparison against the best 0.25 setting.",
-   "obs": {
-    "ok": true,
-    "recipe": "default",
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 14,
-   "action": "set_recipe",
-   "args": {
-    "recipe": "default"
-   },
-   "why": "Restore the recipe associated with the current best before evaluating a new transition configuration.",
-   "thinking": "The best result remains the default-recipe RF transition model at micro-F1 0.546; balanced reduced it to 0.536. The RF self-supervision ratio 0.5 also underperformed, while concat at 0.25 has already been tested. Setting the recipe back to default is needed before testing an untried condition-interaction mode, film, against the strongest recipe.",
-   "obs": {
-    "ok": true,
-    "recipe": "default",
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 15,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "learner": "rf",
-     "selfsup_ratio": 0.25,
-     "cond_mode": "film"
-    }
-   },
-   "why": "Tests the most promising untried transition interaction architecture while preserving the best recipe, calibration, and RF learner.",
-   "thinking": "The best result is the default-recipe calibrated transition RF with concat conditioning and selfsup_ratio 0.25 at micro-F1 0.546. The RF selfsup 0.5 variant was slightly worse, while xgb was also worse; the strongest untried high-value option is the RF transition model with FiLM conditioning, which may capture condition-by-state interactions better than concat. The pending recipe is default, so I will evaluate that configuration directly.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "film",
-     "selfsup_ratio": 0.25,
-     "learner": "rf"
-    },
-    "recipe": "default",
-    "val_ce": 0.2403,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.247,
-     "micro_f1": 0.535
-    },
-    "compute_left": 10
-   }
-  },
-  {
-   "step": 16,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.5,
-     "learner": "mlp"
-    }
-   },
-   "why": "Tests an untried expressive transition model with stronger identity anchoring, the most plausible route to exceed the current 0.546 micro-F1.",
-   "thinking": "The best observed micro-F1 is 0.546 from the transition arm, while recent RF and XGB variants reached only 0.540 and 0.542. The remaining high-value transition options include MLP configurations with explicit condition-state interaction; MLP with concat and self-supervision 0.5 is not listed as tried and should be more expressive than the weaker pooled RF/XGB variants. I will test that configuration under the already beneficial calibrated-threshold setting and default recipe.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.5,
-     "learner": "mlp"
-    },
-    "recipe": "default",
-    "val_ce": 0.5745,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.202,
-     "micro_f1": 0.524
-    },
-    "compute_left": 8
-   }
-  },
-  {
-   "step": 17,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "film",
-     "selfsup_ratio": 0.25,
-     "learner": "xgb"
-    }
-   },
-   "why": "Tests the strongest recent transition learner with the untried film condition interaction, at cost 2.",
-   "thinking": "The best observed micro-F1 is 0.546 from the transition arm, while recent transition variants show xgb at 0.542 with concat and rf at 0.535 with film. The xgb+film+selfsup_ratio=0.25 configuration remains untried and directly tests the strongest learner with the alternate condition interaction mode, making it the most likely low-cost improvement. Balanced rf and the current mlp are weaker, so I will stay with default recipe and calibrated thresholds.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "film",
-     "selfsup_ratio": 0.25,
-     "learner": "xgb"
-    },
-    "recipe": "default",
-    "val_ce": 0.2595,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.178,
-     "micro_f1": 0.542
-    },
-    "compute_left": 6
-   }
-  },
-  {
-   "step": 18,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "learner": "xgb",
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.25
-    }
-   },
-   "why": "XGB is the strongest recent transition learner, and concat is an untried alternative to its FiLM conditioning that may improve micro-F1.",
-   "thinking": "The current best internal micro-F1 is 0.546 from a calibrated default transition model. Recent trials show RF and MLP below this, while XGB with FiLM reached 0.542; the corresponding XGB concat configuration has not been tried and directly tests the strongest remaining transition interaction choice. I will keep the successful default recipe and calibrated thresholds, using the same self-supervision ratio to isolate the conditioning architecture.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.25,
-     "learner": "xgb"
-    },
-    "recipe": "default",
-    "val_ce": 0.2595,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.178,
-     "micro_f1": 0.542
-    },
-    "compute_left": 4
-   }
-  },
-  {
-   "step": 19,
-   "action": "set_feature_groups",
-   "args": {
-    "groups": [
-     "self"
-    ]
-   },
-   "why": "Testing the compact self-state representation is the most promising untried low-cost change for improving the best transition model.",
-   "thinking": "The best observed configuration is the calibrated transition model at micro-F1 0.546, while the recent transition variants are lower. Feature groups are available and have not been tested for this transition setup; restricting inputs to the target exam's own prior state should reduce cross-concept noise while retaining mandatory condition features. I will set the feature groups to self, then use the next iteration to retrain the strongest transition configuration.",
-   "obs": {
-    "ok": true,
-    "feature_groups": [
-     "self"
-    ],
-    "note": "retrain to apply"
-   }
-  },
-  {
-   "step": 20,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "learner": "rf",
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.25
-    }
-   },
-   "why": "Tests the remaining promising RF transition variant and may improve on the current 0.546 micro-F1 best.",
-   "thinking": "The best known configuration is the calibrated transition model at micro-F1 0.546. Recent transition trials show xgb at 0.542 in both tested condition modes and RF with film at 0.535; RF with concat remains untried and is a plausible low-cost comparison because concat may preserve condition effects more directly. I will test that configuration while retaining the current default recipe, self features, and calibrated thresholds.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.25,
-     "learner": "rf"
-    },
-    "recipe": "default",
-    "val_ce": 0.2633,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.189,
-     "micro_f1": 0.536
-    },
-    "compute_left": 2
-   }
-  },
-  {
-   "step": 21,
-   "action": "train_transition",
-   "args": {
-    "config": {
-     "learner": "xgb",
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.5
-    }
-   },
-   "why": "Tune the strongest recent transition learner with a higher self-supervision ratio to seek a micro-F1 gain.",
-   "thinking": "Best is calibrated transition at micro-F1 0.546. Tried transition xgb with concat/film at selfsup_ratio 0.25 (0.542), rf variants, and mlp at 0.5, but xgb remains the strongest recent family. The highest-value untried transition variant is xgb with a larger identity self-supervision mix, which may improve state continuity while retaining the condition model; it uses the remaining 2 compute units.",
-   "obs": {
-    "ok": true,
-    "model": "transition",
-    "config": {
-     "hidden": 128,
-     "depth": 2,
-     "dropout": 0.0,
-     "cond_mode": "concat",
-     "selfsup_ratio": 0.5,
-     "learner": "xgb"
-    },
-    "recipe": "default",
-    "val_ce": 0.2862,
-    "threshold_mode": "calibrated",
-    "internal_val": {
-     "macro_f1": 0.168,
-     "micro_f1": 0.528
-    },
-    "compute_left": 0
-   }
-  },
-  {
-   "step": 22,
-   "action": "stop",
-   "why": "No compute remains for a new measurement, and the incumbent micro-F1 of 0.546 is already higher than all recent alternatives."
-  }
- ],
- "policy_usage": {
-  "policy_model": "gpt-6-astra",
-  "api_calls": 23,
-  "prompt_tokens": 174523,
-  "completion_tokens": 6116,
-  "total_tokens": 180639,
-  "wall_sec": 965.3
- }
 }
