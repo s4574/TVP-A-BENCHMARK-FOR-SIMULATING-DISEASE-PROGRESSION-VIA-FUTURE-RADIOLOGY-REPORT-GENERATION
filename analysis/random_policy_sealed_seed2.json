@@ -1,0 +1,8 @@
+{
+ "seed": 2,
+ "sealed_micro_f1_1419": 0.4258,
+ "precision": 0.3799,
+ "recall": 0.4844,
+ "internal_val_best": 0.475,
+ "termination": "max_iters"
+}

@@ -1,0 +1,938 @@
+{
+  "best_config": {
+    "model": "transition",
+    "recipe": "balanced",
+    "threshold_mode": "fixed",
+    "min_pos": 5,
+    "hparams": {},
+    "feature_groups": null,
+    "state_concepts": null,
+    "state_concepts_mode": null,
+    "ns_spec": null,
+    "ns_hparams": null,
+    "transition_config": {
+      "hidden": 128,
+      "depth": 2,
+      "dropout": 0.0,
+      "cond_mode": "concat",
+      "selfsup_ratio": 1.0,
+      "learner": "mlp"
+    },
+    "macro": 0.148,
+    "micro": 0.488
+  },
+  "trajectory_length": 24,
+  "termination_reason": "max_iters",
+  "budgets": {
+    "max_iters": 24,
+    "compute_units": 30,
+    "recent_window": 6,
+    "show_progress": false
+  },
+  "policy_model_start": "random-policy-seed1",
+  "policy_model_final": "random-policy-seed1",
+  "history": [
+    {
+      "step": 0,
+      "action": "set_recipe",
+      "model": null,
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": null,
+      "compute_left": 30,
+      "iters_used": 1
+    },
+    {
+      "step": 1,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.148,
+      "val_micro": 0.488,
+      "best_macro_so_far": 0.148,
+      "compute_left": 28,
+      "iters_used": 2
+    },
+    {
+      "step": 2,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.155,
+      "val_micro": 0.43,
+      "best_macro_so_far": 0.148,
+      "compute_left": 26,
+      "iters_used": 3
+    },
+    {
+      "step": 3,
+      "action": "train_ensemble",
+      "model": "ensemble:xgb+logreg",
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.146,
+      "val_micro": 0.485,
+      "best_macro_so_far": 0.148,
+      "compute_left": 24,
+      "iters_used": 4
+    },
+    {
+      "step": 4,
+      "action": "set_threshold_mode",
+      "model": "ensemble:xgb+logreg",
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.148,
+      "compute_left": 24,
+      "iters_used": 5
+    },
+    {
+      "step": 5,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.137,
+      "val_micro": 0.429,
+      "best_macro_so_far": 0.148,
+      "compute_left": 22,
+      "iters_used": 6
+    },
+    {
+      "step": 6,
+      "action": "train",
+      "model": "rf",
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.108,
+      "val_micro": 0.457,
+      "best_macro_so_far": 0.148,
+      "compute_left": 21,
+      "iters_used": 7
+    },
+    {
+      "step": 7,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 5,
+      "val_macro": 0.128,
+      "val_micro": 0.459,
+      "best_macro_so_far": 0.148,
+      "compute_left": 19,
+      "iters_used": 8
+    },
+    {
+      "step": 8,
+      "action": "set_min_pos",
+      "model": "transition",
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.148,
+      "compute_left": 19,
+      "iters_used": 9
+    },
+    {
+      "step": 9,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": 0.133,
+      "val_micro": 0.461,
+      "best_macro_so_far": 0.148,
+      "compute_left": 17,
+      "iters_used": 10
+    },
+    {
+      "step": 10,
+      "action": "train_ensemble",
+      "model": "ensemble:mlp+logreg",
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": 0.112,
+      "val_micro": 0.454,
+      "best_macro_so_far": 0.148,
+      "compute_left": 15,
+      "iters_used": 11
+    },
+    {
+      "step": 11,
+      "action": "train_ensemble",
+      "model": "ensemble:mlp+xgb+logreg",
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": 0.107,
+      "val_micro": 0.471,
+      "best_macro_so_far": 0.148,
+      "compute_left": 12,
+      "iters_used": 12
+    },
+    {
+      "step": 12,
+      "action": "train",
+      "model": "xgb",
+      "recipe": "balanced",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": 0.083,
+      "val_micro": 0.461,
+      "best_macro_so_far": 0.148,
+      "compute_left": 11,
+      "iters_used": 13
+    },
+    {
+      "step": 13,
+      "action": "set_recipe",
+      "model": "xgb",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.148,
+      "compute_left": 11,
+      "iters_used": 14
+    },
+    {
+      "step": 14,
+      "action": "train",
+      "model": "logreg",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": 0.105,
+      "val_micro": 0.445,
+      "best_macro_so_far": 0.148,
+      "compute_left": 10,
+      "iters_used": 15
+    },
+    {
+      "step": 15,
+      "action": "train",
+      "model": "xgb",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": 0.083,
+      "val_micro": 0.461,
+      "best_macro_so_far": 0.148,
+      "compute_left": 9,
+      "iters_used": 16
+    },
+    {
+      "step": 16,
+      "action": "train_ensemble",
+      "model": "ensemble:rf+logreg+xgb",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": 0.09,
+      "val_micro": 0.468,
+      "best_macro_so_far": 0.148,
+      "compute_left": 6,
+      "iters_used": 17
+    },
+    {
+      "step": 17,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": 0.126,
+      "val_micro": 0.468,
+      "best_macro_so_far": 0.148,
+      "compute_left": 4,
+      "iters_used": 18
+    },
+    {
+      "step": 18,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": 0.121,
+      "val_micro": 0.46,
+      "best_macro_so_far": 0.148,
+      "compute_left": 2,
+      "iters_used": 19
+    },
+    {
+      "step": 19,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": 0.134,
+      "val_micro": 0.452,
+      "best_macro_so_far": 0.148,
+      "compute_left": 0,
+      "iters_used": 20
+    },
+    {
+      "step": 20,
+      "action": "train",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.148,
+      "compute_left": 0,
+      "iters_used": 21
+    },
+    {
+      "step": 21,
+      "action": "train",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.148,
+      "compute_left": 0,
+      "iters_used": 22
+    },
+    {
+      "step": 22,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.148,
+      "compute_left": 0,
+      "iters_used": 23
+    },
+    {
+      "step": 23,
+      "action": "train_transition",
+      "model": "transition",
+      "recipe": "default",
+      "threshold_mode": "fixed",
+      "min_pos": 8,
+      "val_macro": null,
+      "val_micro": null,
+      "best_macro_so_far": 0.148,
+      "compute_left": 0,
+      "iters_used": 24
+    }
+  ],
+  "trace": [
+    {
+      "step": 0,
+      "action": "set_recipe",
+      "args": {
+        "recipe": "balanced"
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "recipe": "balanced",
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 1,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 1.0,
+          "learner": "mlp"
+        }
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 1.0,
+          "learner": "mlp"
+        },
+        "recipe": "balanced",
+        "val_ce": 1.0259,
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.148,
+          "micro_f1": 0.488
+        },
+        "compute_left": 28
+      }
+    },
+    {
+      "step": 2,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "film",
+          "selfsup_ratio": 0.5,
+          "learner": "logreg"
+        }
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "film",
+          "selfsup_ratio": 0.5,
+          "learner": "logreg"
+        },
+        "recipe": "balanced",
+        "val_ce": 0.7881,
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.155,
+          "micro_f1": 0.43
+        },
+        "compute_left": 26
+      }
+    },
+    {
+      "step": 3,
+      "action": "train_ensemble",
+      "args": {
+        "methods": [
+          "xgb",
+          "logreg"
+        ]
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "ensemble:xgb+logreg",
+        "recipe": "balanced",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.146,
+          "micro_f1": 0.485
+        },
+        "compute_left": 24
+      }
+    },
+    {
+      "step": 4,
+      "action": "set_threshold_mode",
+      "args": {
+        "mode": "fixed"
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "threshold_mode": "fixed",
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 5,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 256,
+          "depth": 1,
+          "dropout": 0.0,
+          "cond_mode": "film",
+          "selfsup_ratio": 1.0,
+          "learner": "logreg"
+        }
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 256,
+          "depth": 1,
+          "dropout": 0.0,
+          "cond_mode": "film",
+          "selfsup_ratio": 1.0,
+          "learner": "logreg"
+        },
+        "recipe": "balanced",
+        "val_ce": 0.8361,
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.137,
+          "micro_f1": 0.429
+        },
+        "compute_left": 22
+      }
+    },
+    {
+      "step": 6,
+      "action": "train",
+      "args": {
+        "method": "rf"
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "rf",
+        "recipe": "balanced",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.108,
+          "micro_f1": 0.457
+        },
+        "compute_left": 21
+      }
+    },
+    {
+      "step": 7,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 1,
+          "dropout": 0.2,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "rf"
+        }
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 1,
+          "dropout": 0.2,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "rf"
+        },
+        "recipe": "balanced",
+        "val_ce": 0.2309,
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.128,
+          "micro_f1": 0.459
+        },
+        "compute_left": 19
+      }
+    },
+    {
+      "step": 8,
+      "action": "set_min_pos",
+      "args": {
+        "n": 8
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "min_pos": 8,
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 9,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 1,
+          "dropout": 0.2,
+          "cond_mode": "film",
+          "selfsup_ratio": 1.0,
+          "learner": "xgb"
+        }
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 1,
+          "dropout": 0.2,
+          "cond_mode": "film",
+          "selfsup_ratio": 1.0,
+          "learner": "xgb"
+        },
+        "recipe": "balanced",
+        "val_ce": 0.2534,
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.133,
+          "micro_f1": 0.461
+        },
+        "compute_left": 17
+      }
+    },
+    {
+      "step": 10,
+      "action": "train_ensemble",
+      "args": {
+        "methods": [
+          "mlp",
+          "logreg"
+        ]
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "ensemble:mlp+logreg",
+        "recipe": "balanced",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.112,
+          "micro_f1": 0.454
+        },
+        "compute_left": 15
+      }
+    },
+    {
+      "step": 11,
+      "action": "train_ensemble",
+      "args": {
+        "methods": [
+          "mlp",
+          "xgb",
+          "logreg"
+        ]
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "ensemble:mlp+xgb+logreg",
+        "recipe": "balanced",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.107,
+          "micro_f1": 0.471
+        },
+        "compute_left": 12
+      }
+    },
+    {
+      "step": 12,
+      "action": "train",
+      "args": {
+        "method": "xgb"
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "xgb",
+        "recipe": "balanced",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.083,
+          "micro_f1": 0.461
+        },
+        "compute_left": 11
+      }
+    },
+    {
+      "step": 13,
+      "action": "set_recipe",
+      "args": {
+        "recipe": "default"
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "recipe": "default",
+        "note": "retrain to apply"
+      }
+    },
+    {
+      "step": 14,
+      "action": "train",
+      "args": {
+        "method": "logreg"
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "logreg",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.105,
+          "micro_f1": 0.445
+        },
+        "compute_left": 10
+      }
+    },
+    {
+      "step": 15,
+      "action": "train",
+      "args": {
+        "method": "xgb"
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "xgb",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.083,
+          "micro_f1": 0.461
+        },
+        "compute_left": 9
+      }
+    },
+    {
+      "step": 16,
+      "action": "train_ensemble",
+      "args": {
+        "methods": [
+          "rf",
+          "logreg",
+          "xgb"
+        ]
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "ensemble:rf+logreg+xgb",
+        "recipe": "default",
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.09,
+          "micro_f1": 0.468
+        },
+        "compute_left": 6
+      }
+    },
+    {
+      "step": 17,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 64,
+          "depth": 1,
+          "dropout": 0.2,
+          "cond_mode": "film",
+          "selfsup_ratio": 0.5,
+          "learner": "xgb"
+        }
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 64,
+          "depth": 1,
+          "dropout": 0.2,
+          "cond_mode": "film",
+          "selfsup_ratio": 0.5,
+          "learner": "xgb"
+        },
+        "recipe": "default",
+        "val_ce": 0.2536,
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.126,
+          "micro_f1": 0.468
+        },
+        "compute_left": 4
+      }
+    },
+    {
+      "step": 18,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 256,
+          "depth": 1,
+          "dropout": 0.2,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "xgb"
+        }
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 256,
+          "depth": 1,
+          "dropout": 0.2,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "xgb"
+        },
+        "recipe": "default",
+        "val_ce": 0.2595,
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.121,
+          "micro_f1": 0.46
+        },
+        "compute_left": 2
+      }
+    },
+    {
+      "step": 19,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "film",
+          "selfsup_ratio": 1.0,
+          "learner": "rf"
+        }
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "ok": true,
+        "model": "transition",
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "film",
+          "selfsup_ratio": 1.0,
+          "learner": "rf"
+        },
+        "recipe": "default",
+        "val_ce": 0.2199,
+        "threshold_mode": "fixed",
+        "internal_val": {
+          "macro_f1": 0.134,
+          "micro_f1": 0.452
+        },
+        "compute_left": 0
+      }
+    },
+    {
+      "step": 20,
+      "action": "train",
+      "args": {
+        "method": "logreg"
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "error": "out of compute"
+      }
+    },
+    {
+      "step": 21,
+      "action": "train",
+      "args": {
+        "method": "base-rate"
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "error": "out of compute"
+      }
+    },
+    {
+      "step": 22,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 128,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.25,
+          "learner": "logreg"
+        }
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "error": "need 2 compute for transition training"
+      }
+    },
+    {
+      "step": 23,
+      "action": "train_transition",
+      "args": {
+        "config": {
+          "hidden": 256,
+          "depth": 2,
+          "dropout": 0.0,
+          "cond_mode": "concat",
+          "selfsup_ratio": 0.0,
+          "learner": "mlp"
+        }
+      },
+      "why": "random",
+      "thinking": "uniform-random policy",
+      "obs": {
+        "error": "need 2 compute for transition training"
+      }
+    }
+  ],
+  "policy_usage": {
+    "policy_model": "random-policy-seed1",
+    "api_calls": 24,
+    "prompt_tokens": 24,
+    "completion_tokens": 24,
+    "total_tokens": 48,
+    "wall_sec": 4060.7
+  }
+}
