@@ -4,3 +4,13 @@ llm_api/*.yaml
 !llm_api/*.example
 __pycache__/
 *.pdf
+# MIMIC-IV patient-level derivatives: never commit to the public repo (DUA-gated component)
+analysis/key2probs_*.json
+analysis/*percase_records.json
+analysis/percase/e2e_*.json
+analysis/percase/pathB_*.json
+analysis/percase/baseline_*.json
+analysis/extractor_sensitivity_400.json
+analysis/same_study_leakage_audit.json
+analysis/annotation/taskA_*.json
+analysis/annotation/taskB_item_mapping.json
