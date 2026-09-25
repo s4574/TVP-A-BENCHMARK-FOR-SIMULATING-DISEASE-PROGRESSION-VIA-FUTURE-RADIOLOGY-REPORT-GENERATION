@@ -1,0 +1,142 @@
+[
+ {
+  "a": "advisory4k",
+  "b": "e2e_4k",
+  "metric": "mention",
+  "diff": 0.0202,
+  "ci_lo": 0.0078,
+  "ci_hi": 0.033,
+  "p": 0.0014,
+  "sig": true
+ },
+ {
+  "a": "probC_fullctx",
+  "b": "e2e_mini",
+  "metric": "mention",
+  "diff": -0.0088,
+  "ci_lo": -0.0199,
+  "ci_hi": 0.0021,
+  "p": 0.1236,
+  "sig": false
+ },
+ {
+  "a": "e2e_mini",
+  "b": "e2e_ablate",
+  "metric": "mention",
+  "diff": 0.0089,
+  "ci_lo": -0.0024,
+  "ci_hi": 0.0201,
+  "p": 0.1198,
+  "sig": false
+ },
+ {
+  "a": "e2e_astra",
+  "b": "e2e_mini",
+  "metric": "mention",
+  "diff": 0.0064,
+  "ci_lo": -0.0057,
+  "ci_hi": 0.0189,
+  "p": 0.3062,
+  "sig": false
+ },
+ {
+  "a": "stateonly_render",
+  "b": "copy_prior",
+  "metric": "mention",
+  "diff": 0.0094,
+  "ci_lo": -0.0098,
+  "ci_hi": 0.0288,
+  "p": 0.3458,
+  "sig": false
+ },
+ {
+  "a": "e2e_mini",
+  "b": "copy_prior",
+  "metric": "mention",
+  "diff": 0.0602,
+  "ci_lo": 0.0427,
+  "ci_hi": 0.0776,
+  "p": 0.0001,
+  "sig": true
+ },
+ {
+  "a": "e2e_opus",
+  "b": "e2e_mini",
+  "metric": "omtol",
+  "diff": -0.0142,
+  "ci_lo": -0.0287,
+  "ci_hi": 0.0002,
+  "p": 0.054,
+  "sig": false
+ },
+ {
+  "a": "e2e_glm",
+  "b": "e2e_mini",
+  "metric": "omtol",
+  "diff": -0.0173,
+  "ci_lo": -0.0312,
+  "ci_hi": -0.0033,
+  "p": 0.0154,
+  "sig": true
+ },
+ {
+  "a": "e2e_astra",
+  "b": "e2e_mini",
+  "metric": "omtol",
+  "diff": 0.0018,
+  "ci_lo": -0.0116,
+  "ci_hi": 0.0152,
+  "p": 0.791,
+  "sig": false
+ },
+ {
+  "a": "e2e_opus",
+  "b": "e2e_mini",
+  "metric": "mention",
+  "diff": -0.0175,
+  "ci_lo": -0.0304,
+  "ci_hi": -0.005,
+  "p": 0.0072,
+  "sig": true
+ },
+ {
+  "a": "e2e_astra",
+  "b": "probC_fullctx",
+  "metric": "mention",
+  "diff": 0.0152,
+  "ci_lo": 0.0022,
+  "ci_hi": 0.028,
+  "p": 0.0202,
+  "sig": true
+ },
+ {
+  "a": "e2e_astra",
+  "b": "probC_fullctx",
+  "metric": "omtol",
+  "diff": 0.0004,
+  "ci_lo": -0.0135,
+  "ci_hi": 0.0143,
+  "p": 0.9506,
+  "sig": false
+ },
+ {
+  "a": "probC_fullctx",
+  "b": "e2e_mini",
+  "metric": "omtol",
+  "diff": 0.0014,
+  "ci_lo": -0.0111,
+  "ci_hi": 0.0136,
+  "p": 0.829,
+  "sig": false
+ },
+ {
+  "a": "stateonly_render",
+  "b": "copy_prior",
+  "metric": "omtol",
+  "diff": 0.0258,
+  "ci_lo": 0.0042,
+  "ci_hi": 0.0475,
+  "p": 0.0208,
+  "sig": true
+ }
+]
