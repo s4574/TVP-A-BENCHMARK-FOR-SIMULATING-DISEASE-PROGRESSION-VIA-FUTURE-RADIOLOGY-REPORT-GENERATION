@@ -1,0 +1,92 @@
+[
+ {
+  "ns": "rad.xray_chest",
+  "n": 900,
+  "e2e_astra": 0.588,
+  "e2e_mini": 0.584,
+  "probC_fullctx": 0.571,
+  "advisory4k": 0.553,
+  "stateonly_render": 0.529,
+  "copy_prior": 0.54
+ },
+ {
+  "ns": "rad.xray_other",
+  "n": 127,
+  "e2e_astra": 0.625,
+  "e2e_mini": 0.455,
+  "probC_fullctx": 0.286,
+  "advisory4k": 0.0,
+  "stateonly_render": 0.0,
+  "copy_prior": 0.083
+ },
+ {
+  "ns": "rad.ct_head",
+  "n": 115,
+  "e2e_astra": 0.17,
+  "e2e_mini": 0.109,
+  "probC_fullctx": 0.154,
+  "advisory4k": 0.106,
+  "stateonly_render": 0.131,
+  "copy_prior": 0.104
+ },
+ {
+  "ns": "rad.ct_chest",
+  "n": 60,
+  "e2e_astra": 0.603,
+  "e2e_mini": 0.638,
+  "probC_fullctx": 0.63,
+  "advisory4k": 0.576,
+  "stateonly_render": 0.575,
+  "copy_prior": 0.357
+ },
+ {
+  "ns": "rad.us_other",
+  "n": 59,
+  "e2e_astra": 0.167,
+  "e2e_mini": 0.154,
+  "probC_fullctx": 0.5,
+  "advisory4k": 0.0,
+  "stateonly_render": 0.0,
+  "copy_prior": 0.0
+ },
+ {
+  "ns": "rad.ct_abdomen",
+  "n": 57,
+  "e2e_astra": 0.458,
+  "e2e_mini": 0.42,
+  "probC_fullctx": 0.474,
+  "advisory4k": 0.415,
+  "stateonly_render": 0.357,
+  "copy_prior": 0.359
+ },
+ {
+  "ns": "rad.mr_head",
+  "n": 54,
+  "e2e_astra": 0.18,
+  "e2e_mini": 0.189,
+  "probC_fullctx": 0.22,
+  "advisory4k": 0.191,
+  "stateonly_render": 0.138,
+  "copy_prior": 0.154
+ },
+ {
+  "ns": "rad.xray_abdomen",
+  "n": 28,
+  "e2e_astra": 0.0,
+  "e2e_mini": 0.0,
+  "probC_fullctx": 0.0,
+  "advisory4k": 0.0,
+  "stateonly_render": 0.0,
+  "copy_prior": 0.0
+ },
+ {
+  "ns": "rad.xray_extremity",
+  "n": 19,
+  "e2e_astra": 0.0,
+  "e2e_mini": 0.0,
+  "probC_fullctx": 0.0,
+  "advisory4k": 0.0,
+  "stateonly_render": 0.0,
+  "copy_prior": 0.0
+ }
+]
